@@ -16,8 +16,8 @@ namespace Web_Forum.Controllers
         public IRepository repo = new DummyRepository();
         public ActionResult Index()
         {
-            //var threads = repo.GetThreads();
-            return View(/*threads*/);
+            var threads = repo.GetThreads();
+            return View(threads);
         }
         
      
