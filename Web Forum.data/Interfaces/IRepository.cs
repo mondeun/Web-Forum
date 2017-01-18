@@ -9,9 +9,7 @@ namespace Web_Forum.data.Interfaces
 {
     public interface IRepository
     {
-        List<Subforum> GetSubforums();
-        List<Topic> GetTopics(Guid subForumId);
-        List<Thread> GetThreads(Guid topicId);
+        List<Thread> GetThreads();
         List<Post> GetPosts(Guid threadId);
     }
 }
