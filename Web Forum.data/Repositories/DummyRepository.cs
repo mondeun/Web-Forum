@@ -29,6 +29,22 @@ namespace Web_Forum.data.Repositories
                     DateCreated = DateTime.UtcNow,
                     LastPosted = DateTime.UtcNow,
                     Posts = posts
+                },
+                new Thread
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Nästa tråd",
+                    DateCreated = DateTime.UtcNow,
+                    LastPosted = DateTime.UtcNow,
+                    Posts = posts
+                },
+                new Thread
+                {
+                    Id = Guid.NewGuid(),
+                    Title = "Varför är Sture så lustig?",
+                    DateCreated = DateTime.UtcNow,
+                    LastPosted = DateTime.UtcNow,
+                    Posts = posts
                 }
             };
         }

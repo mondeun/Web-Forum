@@ -22,17 +22,20 @@
     <div>
         <h3>Sub-Forums</h3>
         <div>
-            @{
-                //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
-                foreach (var thread in Model)
-                {
-                    @*<h3>@subforum.Title</h3>*@
-                    @Html.ActionLink(thread.Title, "Index", "Thread", new { id = thread.Id }, null);
+            <ul>
+                @{
+                    //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
+                    foreach (var thread in Model)
+                    {
+                        @*<h3>@subforum.Title</h3>*@
+                        <li class="form-control alert-success">
+                            @Html.ActionLink(thread.Title, "Index", "Thread", new { id = thread.Id }, null)
+                            <span><small>Posts</small> @thread.Posts.Count</span>
+                            <span><small>Created</small> @thread.DateCreated</span>
+                        </li>
+                    }
                 }
-
-
-
-            }
+            </ul>
         </div>
     </div>
     <!---->
