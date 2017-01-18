@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Web_Forum.data.Subforum>
 
 
 <div class="container">
@@ -23,8 +23,14 @@
         <h3>Sub-Forums</h3>
         <div>
             @{
-//To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
-//Html.Partial("getSubForums");
+                //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
+                foreach (var subforum in Model)
+                {
+                    @*<h3>@subforum.Title</h3>*@
+                    @Html.ActionLink(subforum.Title, "");
+                }
+
+
 
             }
         </div>
