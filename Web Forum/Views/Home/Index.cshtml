@@ -1,4 +1,4 @@
-﻿@model List<Web_Forum.data.Subforum>
+﻿@model List<Web_Forum.data.Models.Thread>
 
 
 <div class="container">
@@ -24,10 +24,10 @@
         <div>
             @{
                 //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
-                foreach (var subforum in Model)
+                foreach (var thread in Model)
                 {
                     @*<h3>@subforum.Title</h3>*@
-                    @Html.ActionLink(subforum.Title, "");
+                    @Html.ActionLink(thread.Title, "Index", "Thread", new { id = thread.Id }, null);
                 }
 
 
