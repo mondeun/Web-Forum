@@ -8,7 +8,7 @@ using Web_Forum.data.Models;
 
 namespace Web_Forum.data.Repositories
 {
-    class DummyRepository : IRepository
+    public class DummyRepository : IRepository
     {
         private List<Subforum> subForums;
         private List<Topic> topics;

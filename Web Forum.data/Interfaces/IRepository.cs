@@ -7,7 +7,7 @@ using Web_Forum.data.Models;
 
 namespace Web_Forum.data.Interfaces
 {
-    interface IRepository
+    public interface IRepository
     {
         List<Subforum> GetSubforums();
         List<Topic> GetTopics(Guid subForumId);
