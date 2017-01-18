@@ -10,8 +10,6 @@ namespace Web_Forum.data.Repositories
 {
     public class DummyRepository : IRepository
     {
-        private List<Subforum> subForums;
-        private List<Topic> topics;
         private List<Thread> threads;
         private List<Post> posts;
 
@@ -33,27 +31,9 @@ namespace Web_Forum.data.Repositories
                     Posts = posts
                 }
             };
-            topics = new List<Topic>
-            {
-                new Topic {Id = Guid.NewGuid(), Title = "C#", Threads = threads}
-            };
-            subForums = new List<Subforum>
-            {
-                new Subforum {Id = Guid.NewGuid(), Title = "Programmering", Topics = topics}
-            };
         }
 
-        public List<Subforum> GetSubforums()
-        {
-            return subForums;
-        }
-
-        public List<Topic> GetTopics(Guid subForumId)
-        {
-            return topics;
-        }
-
-        public List<Thread> GetThreads(Guid topicId)
+        public List<Thread> GetThreads()
         {
             return threads;
         }
