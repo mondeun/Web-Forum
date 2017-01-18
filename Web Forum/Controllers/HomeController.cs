@@ -4,14 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
+
 namespace Web_Forum.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
             return View();
         }
+        public ActionResult getSubforums()
+        {
+            return View();
+        }
+     
+
+        
 
         public ActionResult About()
         {
