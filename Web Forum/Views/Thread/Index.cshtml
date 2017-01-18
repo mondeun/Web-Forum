@@ -9,21 +9,25 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="container">
+    @*<div class="container">
 
         <h4>Topics</h4>
+        
         <div class="col-lg-12 col-sm-12">
             <hr />
             
             <div class="clearfix-post-header">
                 <div>
+                    <input />
                     <p></p>
                     <ul>
                         <template>
                         </template>
                     </ul>
+                    
+                    <textarea></textarea>
                     @*<input type="submit" value="Create" class="btn btn-default" />*@
-                    <div class="clearfix-post-footer">
+                    @*<div class="clearfix-post-footer">
                         <button class="btn btn-primary">Reply</button>
                         <button class="btn btn-Danger">Discard</button>
                         <button class="btn btn-default">......</button>
@@ -32,6 +36,15 @@
                 </div>
             </div>
         </div>
+    </div>*@
+    <div>
+        <input class="form-control" type="text"/>
+        <div class="row">
+            <select class="form-control"></select>
+            <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-Danger">Discard</button>
+        </div>
+        <textarea></textarea>
     </div>
 }
 
