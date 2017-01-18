@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web Forum", "Web Forum\Web Forum.csproj", "{17E5F5D2-6226-42A5-AACB-15887DA8E778}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D5C30F52-8164-4B05-9872-4FA3E5BB8FD6} = {D5C30F52-8164-4B05-9872-4FA3E5BB8FD6}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web Forum.data", "Web Forum.data\Web Forum.data.csproj", "{D5C30F52-8164-4B05-9872-4FA3E5BB8FD6}"
 EndProject
