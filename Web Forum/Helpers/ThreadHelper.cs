@@ -24,7 +24,7 @@ namespace Web_Forum.Helpers
         {
             var dto = new PostDTO
             {
-                threadId = post.ThreadId,
+                ThreadId = post.ThreadId,
                 Name = post.Name,
                 Text = post.Text
 

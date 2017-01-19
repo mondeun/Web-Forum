@@ -56,7 +56,26 @@ namespace Web_Forum.data.Repositories
 
         public void AddThread(ThreadDTO dto)
         {
-            // TODO
+            var thread = new Thread
+            {
+                Id = Guid.NewGuid(),
+                Title = dto.Title,
+                DateCreated = DateTime.UtcNow,
+                LastPosted = DateTime.UtcNow
+            };
+
+            var post = new Post
+            {
+                Id = Guid.NewGuid(),
+                Name = dto.Name,
+                Text = dto.Text,
+                Posted = DateTime.UtcNow
+            };
+
+            thread.Posts.Add(post);
+
+            threads.Add(thread);
+            posts.Add(post);
         }
 
         public void AddPost(Post post)

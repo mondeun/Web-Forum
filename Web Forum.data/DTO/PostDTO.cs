@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Web_Forum.Models
+namespace Web_Forum.data.DTO
 {
-    public class PostViewModel
+    public class PostDTO
     {
         public Guid ThreadId { get; set; }
         public string Name { get; set; }
