@@ -71,11 +71,11 @@ namespace Web_Forum.data.Repositories
         public List<Post> GetPosts(Guid threadId)
         {
             var posts = new List<Post>();
-            foreach (var post in this.posts)
+            foreach (var thread in threads)
             {
-                if (post.Id == threadId)
+                if (thread.Id == threadId)
                 {
-                    posts.Add(post);
+                    posts.AddRange(thread.Posts);
                 }
             }
 
