@@ -7,6 +7,7 @@ using Web_Forum.data.Interfaces;
 using Web_Forum.data.Models;
 using Web_Forum.data.Repositories;
 using Web_Forum.Models;
+using Web_Forum.Helpers;
 
 namespace Web_Forum.Controllers
 {
@@ -30,12 +31,12 @@ namespace Web_Forum.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddPost(Guid threadId,PostViewModel post)
+        public ActionResult AddPost(PostViewModel post)
         {
             //TODO Add logic here
             if (ModelState.IsValid)
             {
-                repo.AddPost(threadId, post.Transform());
+                repo.AddPost(post.Transform());
             }
             return View("Index");
         }
