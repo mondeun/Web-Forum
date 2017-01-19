@@ -32,8 +32,16 @@ namespace Web_Forum.Controllers
         public ActionResult AddThread(ThreadViewModel thread)
         {
             //TODO Add logic here
+            if (ModelState.IsValid) { 
+            repo.AddThread(thread.transform());
 
-            return View("Index");
+                return RedirectToAction("Index");
+
+            }
+            else
+            {
+                return View();
+            }
         }
         
         public ActionResult About()

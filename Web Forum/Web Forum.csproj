@@ -153,6 +153,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ThreadHelper.cs" />
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\ThreadViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
