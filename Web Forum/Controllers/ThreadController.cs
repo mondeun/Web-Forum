@@ -8,6 +8,7 @@ using Web_Forum.data.Models;
 using Web_Forum.data.Repositories;
 using Web_Forum.Helpers;
 using Web_Forum.Models;
+using Web_Forum.Helpers;
 
 namespace Web_Forum.Controllers
 {
