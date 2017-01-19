@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Repositories;
 using Web_Forum.Models;
+using Web_Forum.Helpers;
 
 
 namespace Web_Forum.Controllers
@@ -33,7 +34,7 @@ namespace Web_Forum.Controllers
         {
             //TODO Add logic here
             if (ModelState.IsValid) { 
-            repo.AddThread(thread.transform());
+            repo.AddThread(thread.Transform());
 
                 return RedirectToAction("Index");
 
