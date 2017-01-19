@@ -53,7 +53,7 @@ namespace Web_Forum.data.Repositories
             };
         }
 
-        public void AddThread(Thread thread)
+        public void AddThread(Thread thread, Post post)
         {
             // TODO
         }
