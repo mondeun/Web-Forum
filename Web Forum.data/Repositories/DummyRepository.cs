@@ -70,8 +70,16 @@ namespace Web_Forum.data.Repositories
 
         public List<Post> GetPosts(Guid threadId)
         {
-            var post = threads.FirstOrDefault(x => x.Id == threadId).Posts.ToList();
-            return post;
+            var posts = new List<Post>();
+            foreach (var post in this.posts)
+            {
+                if (post.Id == threadId)
+                {
+                    posts.Add(post);
+                }
+            }
+
+            return posts;
         }
     }
 }
