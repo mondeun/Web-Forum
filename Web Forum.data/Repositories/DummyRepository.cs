@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Web_Forum.data.DTO;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Models;
 
@@ -53,7 +54,7 @@ namespace Web_Forum.data.Repositories
             };
         }
 
-        public void AddThread(Thread thread, Post post)
+        public void AddThread(ThreadDTO dto)
         {
             // TODO
         }
