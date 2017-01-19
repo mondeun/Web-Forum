@@ -18,7 +18,11 @@ namespace Web_Forum.data.Repositories
             posts = new List<Post>
             {
                 new Post {Id = Guid.NewGuid(), Name = "Harry", Posted = DateTime.UtcNow, Text = "Detta är ett test"},
-                new Post {Id = Guid.NewGuid(), Name = "Glenn", Posted = DateTime.UtcNow, Text = "Några saker"}
+                new Post {Id = Guid.NewGuid(), Name = "Glenn", Posted = DateTime.UtcNow, Text = "Några saker"},
+                new Post {Id = Guid.NewGuid(), Name = "Gustav", Posted = DateTime.UtcNow, Text = "Snart är det dags för semlor!!!"},
+                new Post {Id = Guid.NewGuid(), Name = "Primadonna", Posted = DateTime.UtcNow, Text = "Glömde bort mina nycklar på bussen. HJÄLP!"},
+                new Post {Id = Guid.NewGuid(), Name = "Glenn", Posted = DateTime.UtcNow, Text = "Haha"},
+                new Post {Id = Guid.NewGuid(), Name = "Anonym", Posted = DateTime.UtcNow, Text = "Tack för nycklarna!"}
             };
             threads = new List<Thread>
             {
@@ -28,23 +32,23 @@ namespace Web_Forum.data.Repositories
                     Title = "Nu testar vi strukturen",
                     DateCreated = DateTime.UtcNow,
                     LastPosted = DateTime.UtcNow,
-                    Posts = posts
+                    Posts = posts.GetRange(0, 2)
                 },
                 new Thread
                 {
                     Id = Guid.NewGuid(),
-                    Title = "Nästa tråd",
+                    Title = "Semlor för hela slanten",
                     DateCreated = DateTime.UtcNow,
                     LastPosted = DateTime.UtcNow,
-                    Posts = posts
+                    Posts = posts.GetRange(2, 1)
                 },
                 new Thread
                 {
                     Id = Guid.NewGuid(),
-                    Title = "Varför är Sture så lustig?",
+                    Title = "Tappat nycklar",
                     DateCreated = DateTime.UtcNow,
                     LastPosted = DateTime.UtcNow,
-                    Posts = posts
+                    Posts = posts.GetRange(3, 3)
                 }
             };
         }
