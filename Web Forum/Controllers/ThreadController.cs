@@ -39,7 +39,7 @@ namespace Web_Forum.Controllers
             {
                 repo.AddPost(post.Transform());
 
-                return View("Index", post.ThreadId);
+                return RedirectToAction("Index", post.ThreadId);
             }
             return View(post);
         }
