@@ -78,7 +78,7 @@ namespace Web_Forum.data.Repositories
             posts.Add(post);
         }
 
-        public void AddPost(Post post)
+        public void AddPost(PostDTO post)
         {
             // TODO
         }
