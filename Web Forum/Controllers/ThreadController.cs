@@ -38,8 +38,10 @@ namespace Web_Forum.Controllers
             if (ModelState.IsValid)
             {
                 repo.AddPost(post.Transform());
+
+                return View("Index", post.ThreadId);
             }
-            return View("Index");
+            return View(post);
         }
     }
 }
