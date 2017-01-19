@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Web_Forum.data.DTO;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Models;
 
@@ -53,7 +54,7 @@ namespace Web_Forum.data.Repositories
             };
         }
 
-        public void AddThread(Thread thread)
+        public void AddThread(ThreadDTO dto)
         {
             // TODO
         }
@@ -70,8 +71,16 @@ namespace Web_Forum.data.Repositories
 
         public List<Post> GetPosts(Guid threadId)
         {
-            var post = threads.FirstOrDefault(x => x.Id == threadId).Posts.ToList();
-            return post;
+            var posts = new List<Post>();
+            foreach (var thread in threads)
+            {
+                if (thread.Id == threadId)
+                {
+                    posts.AddRange(thread.Posts);
+                }
+            }
+
+            return posts;
         }
     }
 }

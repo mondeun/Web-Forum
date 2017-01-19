@@ -14,5 +14,10 @@ namespace Web_Forum.data.Models
         public ICollection<Post> Posts { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime LastPosted { get; set; }
+
+        public Thread()
+        {
+            Posts = new HashSet<Post>();
+        }
     }
 }
