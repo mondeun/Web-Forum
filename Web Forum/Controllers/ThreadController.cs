@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Repositories;
+using Web_Forum.Models;
 
 namespace Web_Forum.Controllers
 {
@@ -16,6 +17,21 @@ namespace Web_Forum.Controllers
         {
             var posts = repo.GetPosts(id);
             return View(posts);
+        }
+
+        public ActionResult AddPost()
+        {
+            // TODO Add logic here
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddThread(PostViewModel thread)
+        {
+            //TODO Add logic here
+
+            return View("Index");
         }
     }
 }
