@@ -78,14 +78,34 @@ namespace Web_Forum.data.Repositories
             posts.Add(post);
         }
 
-        public void AddPost(PostDTO post)
+        public void AddPost(PostDTO dto)
         {
-            // TODO
+            var post = new Post
+            {
+                Id = Guid.NewGuid(),
+                Name = dto.Name,
+                Text = dto.Text,
+                Posted = DateTime.UtcNow
+            };
+
+            GetThreadById(dto.ThreadId).Posts.Add(post);
         }
 
         public List<Thread> GetThreads()
         {
             return threads;
+        }
+
+        public Thread GetThreadById(Guid id)
+        {
+            var result = new Thread();
+            foreach (var thread in threads)
+            {
+                if (thread.Id == id)
+                    result = thread;
+            }
+
+            return result;
         }
 
         public List<Post> GetPosts(Guid threadId)

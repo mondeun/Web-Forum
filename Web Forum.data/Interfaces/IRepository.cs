@@ -13,6 +13,7 @@ namespace Web_Forum.data.Interfaces
         void AddThread(ThreadDTO dto);
         void AddPost(PostDTO post);
         List<Thread> GetThreads();
+        Thread GetThreadById(Guid id);
         List<Post> GetPosts(Guid threadId);
     }
 }
