@@ -9,6 +9,8 @@ namespace Web_Forum.data.Interfaces
 {
     public interface IRepository
     {
+        void AddThread(Thread thread);
+        void AddPost(Post post);
         List<Thread> GetThreads();
         List<Post> GetPosts(Guid threadId);
     }

@@ -49,6 +49,16 @@ namespace Web_Forum.data.Repositories
             };
         }
 
+        public void AddThread(Thread thread)
+        {
+            // TODO
+        }
+
+        public void AddPost(Post post)
+        {
+            // TODO
+        }
+
         public List<Thread> GetThreads()
         {
             return threads;
