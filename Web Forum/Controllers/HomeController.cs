@@ -28,6 +28,7 @@ namespace Web_Forum.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddThread(ThreadViewModel thread)
         {
             //TODO Add logic here

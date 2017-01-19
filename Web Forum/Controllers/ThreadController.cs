@@ -14,10 +14,10 @@ namespace Web_Forum.Controllers
     {
         private IRepository repo = new DummyRepository();
         // GET: Thread
-        public ActionResult Index(Thread thread)
+        public ActionResult Index(Guid id)
         {
-            //var posts = repo.GetPosts(id);
-            return View(thread.Posts);
+            var posts = repo.GetPosts(id);
+            return View(posts);
         }
 
         public ActionResult AddPost()
@@ -28,6 +28,7 @@ namespace Web_Forum.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddThread(PostViewModel thread)
         {
             //TODO Add logic here
