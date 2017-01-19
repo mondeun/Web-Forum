@@ -29,7 +29,7 @@ namespace Web_Forum.data.Repositories
             {
                 new Thread
                 {
-                    Id = Guid.NewGuid(),
+                    Id = Guid.Parse("3cab7754-2836-466f-be16-da27e4ecb287"),
                     Title = "Nu testar vi strukturen",
                     DateCreated = DateTime.UtcNow,
                     LastPosted = DateTime.UtcNow,
@@ -37,7 +37,7 @@ namespace Web_Forum.data.Repositories
                 },
                 new Thread
                 {
-                    Id = Guid.NewGuid(),
+                    Id = Guid.Parse("1895a78f-5e10-4757-8f69-cba9a691de0e"),
                     Title = "Semlor för hela slanten",
                     DateCreated = DateTime.UtcNow,
                     LastPosted = DateTime.UtcNow,
@@ -45,7 +45,7 @@ namespace Web_Forum.data.Repositories
                 },
                 new Thread
                 {
-                    Id = Guid.NewGuid(),
+                    Id = Guid.Parse("1f820aad-3c43-4c74-bf8e-23940ca6f664"),
                     Title = "Tappat nycklar",
                     DateCreated = DateTime.UtcNow,
                     LastPosted = DateTime.UtcNow,
