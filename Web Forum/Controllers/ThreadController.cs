@@ -29,7 +29,7 @@ namespace Web_Forum.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddPost(Guid threadId)
+        public ActionResult AddPost(Guid id)
         {
             // TODO Add logic here
 
