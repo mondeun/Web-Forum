@@ -13,7 +13,7 @@ namespace Web_Forum.data
         
         public DbSet<Post> Posts { get; set; }
         public DbSet<Thread> Threads { get; set; }
-        public WebForumContext():base()
+        public WebForumContext(): base("WebforumContext")
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<WebForumContext>());
         }
