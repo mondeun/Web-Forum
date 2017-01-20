@@ -39,8 +39,8 @@
                     {
                         @*<h3>@subforum.Title</h3>*@
                         <li class="form-control alert-success">
-                            @Html.ActionLink(thread.Title, "Index", "Thread", new { id = thread.Id }, null)
-                            <span><small>Posts</small> @thread.Posts.Count</span>
+                            @Html.ActionLink(thread.Title, "Index", "Thread", new { id = thread.Id, title = thread.Title }, null)
+                            <span><small>Posts</small> @thread.NumberOfPosts</span>
                             <span><small>Created</small> @thread.DateCreated</span>
                         </li>
                     }
