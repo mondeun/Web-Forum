@@ -11,9 +11,10 @@ namespace Web_Forum.data.Interfaces
     public interface IRepository
     {
         void AddThread(ThreadDTO dto);
-        void AddPost(PostDTO post);
-        List<Thread> GetThreads();
-        Thread GetThreadById(Guid id);
-        List<Post> GetPosts(Guid threadId);
+        void AddPost(PostDTO dto);
+        List<ThreadDTO> GetThreads();
+        ThreadDTO GetThreadById(Guid id);
+        List<PostDTO> GetPosts();
+        List<PostDTO> GetPosts(Guid id);
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -31,6 +31,15 @@ namespace Web_Forum.Helpers
             };
             return dto;
         }
-
+        public static PostViewModel Transform(this PostDTO post)
+        {
+            var dto = new PostViewModel
+            {
+                ThreadId = post.ThreadId,
+                Name = post.Name,
+                Text = post.Text
+            };
+            return dto;
+        }
     }
 }
