@@ -51,17 +51,32 @@ namespace Web_Forum.data.Repositories
 
         public List<Post> GetPosts(Guid threadId)
         {
-            throw new NotImplementedException();
+            var postsFromThreadId = new List<Post>();
+            using (var ctx = new WebForumContext())
+            {
+                postsFromThreadId = ctx.Posts.Where(x => x.Thread.Id == threadId).ToList();
+            }
+            return postsFromThreadId;
         }
 
         public Thread GetThreadById(Guid id)
         {
-            throw new NotImplementedException();
+            var thread = new Thread();
+            using (var ctx = new WebForumContext())
+            {
+                
+                thread = ctx.Threads.FirstOrDefault(x => x.Id == id);
+            }
+            return thread;
         }
 
         public List<Thread> GetThreads()
         {
-            throw new NotImplementedException();
+
+            using (var ctx = new WebForumContext())
+            {
+                return ctx.Threads.ToList();
+            }
         }
     }
 }
