@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Web_Forum.data.DTO;
+    using WebGrease.Css.Extensions;
+    using Web_Forum.data.DTO;
 using Web_Forum.Models;
 
 namespace Web_Forum.Helpers
@@ -31,6 +32,20 @@ namespace Web_Forum.Helpers
             };
             return dto;
         }
+
+        public static List<IndexThreadViewModel> Transform(this List<IndexThreadViewModel> models, List<IndexThreadDTO> dtos)
+        {
+            dtos.ForEach(x => models.Add(new IndexThreadViewModel
+            {
+                Id = x.Id,
+                Title = x.Title,
+                DateCreated = x.DateCreated,
+                LastPosted = x.LastPosted,
+                NumberOfPosts = x.NumberOfPosts
+            }));
+            return models;
+        }
+
         public static PostViewModel Transform(this PostDTO post)
         {
             var dto = new PostViewModel

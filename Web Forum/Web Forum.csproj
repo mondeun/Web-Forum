@@ -154,6 +154,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ThreadHelper.cs" />
+    <Compile Include="Models\IndexThreadViewModel.cs" />
     <Compile Include="Models\PostViewModel.cs" />
     <Compile Include="Models\ThreadViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -204,7 +205,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Thread\Index.cshtml" />
     <Content Include="Views\Home\AddThread.cshtml" />
-	<Content Include="Views\Thread\AddPost.cshtml" />
+    <Content Include="Views\Thread\AddPost.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

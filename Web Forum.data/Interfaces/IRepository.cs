@@ -12,7 +12,7 @@ namespace Web_Forum.data.Interfaces
     {
         void AddThread(ThreadDTO dto);
         void AddPost(PostDTO dto);
-        List<ThreadDTO> GetThreads();
+        List<IndexThreadDTO> GetThreads();
         ThreadDTO GetThreadById(Guid id);
         List<PostDTO> GetPosts();
         List<PostDTO> GetPosts(Guid id);

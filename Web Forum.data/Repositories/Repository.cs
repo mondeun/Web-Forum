@@ -26,14 +26,17 @@ namespace Web_Forum.data.Repositories
                 ctx.SaveChanges();
             }
         }
+
         public void AddThread(ThreadDTO dto)
         {
             var newThread = new Thread
             {
                 Id = Guid.NewGuid(),
                 Title = dto.Title,
-
+                DateCreated = DateTime.UtcNow,
+                LastPosted = DateTime.UtcNow
             };
+
             var post = new Post
             {
                 Id = Guid.NewGuid(),
@@ -41,42 +44,69 @@ namespace Web_Forum.data.Repositories
                 Text = dto.Text,
                 Posted = DateTime.UtcNow
             };
+
+            newThread.Posts.Add(post);
+
             using (var ctx = new WebForumContext())
             {
-                ctx.Posts.Add(post);
                 ctx.Threads.Add(newThread);
                 ctx.SaveChanges();
             }
         }
 
-        public List<Post> GetPosts(Guid threadId)
+        public List<PostDTO> GetPosts(Guid threadId)
         {
-            var postsFromThreadId = new List<Post>();
+            var postsFromThreadId = new List<PostDTO>();
             using (var ctx = new WebForumContext())
             {
-                postsFromThreadId = ctx.Posts.Where(x => x.Thread.Id == threadId).ToList();
+                var posts = ctx.Posts.Where(x => x.Thread.Id == threadId).ToList();
+
+                posts.ForEach(x => postsFromThreadId.Add(new PostDTO
+                {
+                    ThreadId = x.Thread.Id,
+                    Name = x.Name,
+                    Text = x.Text
+                }));
             }
             return postsFromThreadId;
         }
 
-        public Thread GetThreadById(Guid id)
+        public ThreadDTO GetThreadById(Guid id)
         {
             var thread = new Thread();
             using (var ctx = new WebForumContext())
             {
-                
-                thread = ctx.Threads.FirstOrDefault(x => x.Id == id);
+                thread = ctx.Threads.Include("Post").FirstOrDefault(x => x.Id == id);
             }
-            return thread;
+
+            var dto = new ThreadDTO();
+
+            return dto;
         }
 
-        public List<Thread> GetThreads()
+        public List<IndexThreadDTO> GetThreads()
         {
-
             using (var ctx = new WebForumContext())
             {
-                return ctx.Threads.ToList();
+                var threads = ctx.Threads.Include("Post").ToList();
+
+                var dtos = new List<IndexThreadDTO>();
+                threads.ForEach(x => dtos.Add(new IndexThreadDTO
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    DateCreated = x.DateCreated,
+                    LastPosted = x.Posts.Last().Posted,
+                    NumberOfPosts = x.Posts.Count
+                }));
+
+                return dtos;
             }
+        }
+
+        public List<PostDTO> GetPosts()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\IndexThreadDTO.cs" />
     <Compile Include="DTO\PostDTO.cs" />
     <Compile Include="DTO\ThreadDTO.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
