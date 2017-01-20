@@ -33,6 +33,19 @@ namespace Web_Forum.Helpers
             return dto;
         }
 
+        public static List<PostViewModel> Transform(this List<PostViewModel> models, List<PostDTO> dtos)
+        {
+            dtos.ForEach(x => models.Add(new PostViewModel
+            {
+                ThreadId = x.ThreadId,
+                Name = x.Name,
+                Text = x.Text,
+                Posted = x.Posted
+            }));
+
+            return models;
+        }
+
         public static List<IndexThreadViewModel> Transform(this List<IndexThreadViewModel> models, List<IndexThreadDTO> dtos)
         {
             dtos.ForEach(x => models.Add(new IndexThreadViewModel

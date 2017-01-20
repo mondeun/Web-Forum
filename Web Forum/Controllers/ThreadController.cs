@@ -19,7 +19,13 @@ namespace Web_Forum.Controllers
         public ActionResult Index(Guid id)
         {
             //var posts = repo.GetPosts(id).ForEach(x => x.Transform());
-            return View();
+
+            //var threads = new List<IndexThreadViewModel>();
+            //threads.Transform(repo.GetThreads());
+
+            var posts = new List<PostViewModel>();
+            posts.Transform(repo.GetPosts(id));
+            return View(posts);
         }
 
         [HttpGet]

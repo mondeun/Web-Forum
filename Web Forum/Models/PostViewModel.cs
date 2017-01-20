@@ -10,5 +10,6 @@ namespace Web_Forum.Models
         public Guid ThreadId { get; set; }
         public string Name { get; set; }
         public string Text { get; set; }
+        public DateTime Posted { get; set; }
     }
 }

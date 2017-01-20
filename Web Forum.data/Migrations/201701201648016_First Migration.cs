@@ -15,11 +15,11 @@ namespace Web_Forum.data.Migrations
                         Name = c.String(),
                         Text = c.String(),
                         Posted = c.DateTime(nullable: false),
-                        Thread_Id = c.Guid(),
+                        ThreadId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Threads", t => t.Thread_Id)
-                .Index(t => t.Thread_Id);
+                .ForeignKey("dbo.Threads", t => t.ThreadId, cascadeDelete: true)
+                .Index(t => t.ThreadId);
             
             CreateTable(
                 "dbo.Threads",
@@ -36,8 +36,8 @@ namespace Web_Forum.data.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Posts", "Thread_Id", "dbo.Threads");
-            DropIndex("dbo.Posts", new[] { "Thread_Id" });
+            DropForeignKey("dbo.Posts", "ThreadId", "dbo.Threads");
+            DropIndex("dbo.Posts", new[] { "ThreadId" });
             DropTable("dbo.Threads");
             DropTable("dbo.Posts");
         }

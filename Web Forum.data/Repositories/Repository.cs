@@ -65,7 +65,8 @@ namespace Web_Forum.data.Repositories
                 {
                     ThreadId = x.Thread.Id,
                     Name = x.Name,
-                    Text = x.Text
+                    Text = x.Text,
+                    Posted = x.Posted
                 }));
             }
             return postsFromThreadId;
