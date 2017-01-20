@@ -1,10 +1,19 @@
-﻿@model List<Web_Forum.data.Models.Post>
+﻿@model List<Web_Forum.Models.PostViewModel>
 @{
     ViewBag.Title = "Index";
 }
 
+@{ 
+    var options = new AjaxOptions
+    {
+        HttpMethod = "Get",
+        UpdateTargetId = "CreatePost",
+        InsertionMode = InsertionMode.Replace
+    };
+}
+
 <h2>Title</h2>
-<div>
+<div id="postList">
     @foreach (var post in Model)
     {
         <div>
@@ -12,6 +21,8 @@
             <p>@post.Text</p>
         </div>
     }
+    <h3>@Ajax.ActionLink("Reply", "AddPost", options)</h3>
+    <div id="createPost"></div>
 </div>
 <div>
     @using (Html.BeginForm()) 
