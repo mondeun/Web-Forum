@@ -13,10 +13,12 @@ namespace Web_Forum.Controllers
 {
     public class HomeController : Controller
     {
-        public IRepository repo = new DummyRepository();
+        public IRepository repo = new Repository();
         public ActionResult Index()
         {
-            var threads = repo.GetThreads();
+
+            var threads = new List<IndexThreadViewModel>();
+            threads.Transform(repo.GetThreads());
             return View(threads);
         }
 
