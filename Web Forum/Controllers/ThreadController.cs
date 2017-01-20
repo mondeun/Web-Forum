@@ -14,12 +14,12 @@ namespace Web_Forum.Controllers
 {
     public class ThreadController : Controller
     {
-        private IRepository repo = new DummyRepository();
+        private IRepository repo = new Repository();
         // GET: Thread
         public ActionResult Index(Guid id)
         {
-            var posts = repo.GetPosts(id).ForEach(x => x.Transform());
-            return View(posts);
+            //var posts = repo.GetPosts(id).ForEach(x => x.Transform());
+            return View();
         }
 
         [HttpGet]

@@ -121,5 +121,25 @@ namespace Web_Forum.data.Repositories
 
             return posts;
         }
+
+        List<IndexThreadDTO> IRepository.GetThreads()
+        {
+            throw new NotImplementedException();
+        }
+
+        ThreadDTO IRepository.GetThreadById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<PostDTO> GetPosts()
+        {
+            throw new NotImplementedException();
+        }
+
+        List<PostDTO> IRepository.GetPosts(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
