@@ -33,7 +33,7 @@ namespace Web_Forum.Controllers
         {
             // TODO Add logic here
 
-            return View();
+            return PartialView();
         }
 
         [HttpPost]
@@ -48,7 +48,7 @@ namespace Web_Forum.Controllers
                 return RedirectToAction("Index", post.ThreadId);
             }
 
-            return View(post);
+            return PartialView(post);
         }
        
     }

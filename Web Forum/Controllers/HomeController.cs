@@ -27,24 +27,21 @@ namespace Web_Forum.Controllers
         {
             // TODO Add logic here
 
-            return View();
+            return PartialView();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddThread(ThreadViewModel thread)
         {
-            //TODO Add logic here
-            if (ModelState.IsValid) { 
-            repo.AddThread(thread.Transform());
+            if (ModelState.IsValid)
+            { 
+                repo.AddThread(thread.Transform());
 
-                return RedirectToAction("Index");
+                return View("Index");
+            }
 
-            }
-            else
-            {
-                return View();
-            }
+            return PartialView(thread);
         }
         
         public ActionResult About()
