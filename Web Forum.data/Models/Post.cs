@@ -12,5 +12,6 @@ namespace Web_Forum.data.Models
         public string Name { get; set; }
         public string Text { get; set; }
         public DateTime Posted { get; set; }
+        public virtual Thread Thread { get; set; }
     }
 }

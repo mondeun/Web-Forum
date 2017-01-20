@@ -18,7 +18,7 @@ namespace Web_Forum.Controllers
         // GET: Thread
         public ActionResult Index(Guid id)
         {
-            var posts = repo.GetPosts(id);
+            var posts = repo.GetPosts(id).ForEach(x => x.Transform());
             return View(posts);
         }
 
@@ -41,7 +41,9 @@ namespace Web_Forum.Controllers
 
                 return RedirectToAction("Index", post.ThreadId);
             }
+
             return View(post);
         }
+       
     }
 }
