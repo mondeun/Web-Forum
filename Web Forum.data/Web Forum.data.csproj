@@ -61,7 +61,6 @@
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Thread.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DummyRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="WebForumContext.cs" />
   </ItemGroup>

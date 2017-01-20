@@ -21,7 +21,7 @@
             <p>@post.Text</p>
         </div>
     }
-    <h3>@Ajax.ActionLink("Reply", "AddPost", options)</h3>
+    <h3>@Ajax.ActionLink("Reply", "AddPost", new { id = Model[0].ThreadId }, options)</h3>
     
     <div id="createPost"></div>
 </div>
