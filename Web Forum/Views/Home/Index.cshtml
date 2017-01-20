@@ -1,5 +1,12 @@
 ﻿@model List<Web_Forum.data.Models.Thread>
-
+@{ 
+    var options = new AjaxOptions
+    {
+        HttpMethod = "Get",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "createThread"
+    };
+}
 
 <div class="container">
     @*<h1 class="text-center">@ViewBag.Title</h1>*@
@@ -20,10 +27,11 @@
     <!---->
 
     <div>
-        <button type="button" class="btn-primary">New Topic</button>
+        @Ajax.ActionLink("New Thread", "AddThread", options)
+        <button id="newTopic" type="button" class="btn-primary">New Topic</button>
         <h3>Sub-Forums</h3>
         
-        <div>
+        <div id="threadList">
             <ul>
                 @{
                     //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
@@ -39,6 +47,10 @@
                 }
             </ul>
         </div>
+        <div id="createThread"></div>
+
+
+        
     </div>
     <!---->
     
