@@ -1,7 +1,7 @@
 ﻿@model Web_Forum.Models.PostViewModel
 
 @{ 
-    var option = new AjaxOptions
+    var options = new AjaxOptions
     {
         HttpMethod = "Post",
         UpdateTargetId = "postList",
@@ -9,7 +9,7 @@
     };
 }
 
-@using (Html.BeginForm()) 
+@using (Ajax.BeginForm("AddPost", "Thread", options)) 
 {
     @Html.AntiForgeryToken()
     
