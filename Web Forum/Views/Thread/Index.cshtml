@@ -1,4 +1,4 @@
-﻿@model List<Web_Forum.Models.PostViewModel>
+﻿@model List<Web_Forum.data.Models.Post>
 @{
     ViewBag.Title = "Index";
 }
@@ -13,15 +13,16 @@
 }
 
 <h2>Title</h2>
-<div id="postList">
+<div>
     @foreach (var post in Model)
     {
-        <div>
+        <div id="postThreads">
             <h4>@post.Name - @post.Posted</h4>
             <p>@post.Text</p>
         </div>
     }
     <h3>@Ajax.ActionLink("Reply", "AddPost", options)</h3>
+    
     <div id="createPost"></div>
 </div>
 <div>
