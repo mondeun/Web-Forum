@@ -88,7 +88,7 @@ namespace Web_Forum.data.Repositories
         {
             using (var ctx = new WebForumContext())
             {
-                var threads = ctx.Threads.Include("Post").ToList();
+                var threads = ctx.Threads.Include("Posts").ToList();
 
                 var dtos = new List<IndexThreadDTO>();
                 threads.ForEach(x => dtos.Add(new IndexThreadDTO
