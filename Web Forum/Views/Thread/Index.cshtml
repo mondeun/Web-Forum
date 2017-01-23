@@ -1,6 +1,6 @@
 ﻿@model List<Web_Forum.Models.PostViewModel>
 @{
-    ViewBag.Title = "Index";
+//ViewBag.Title = "Index";
 }
 
 @{ 
@@ -12,10 +12,11 @@
     };
 }
 
-<h2>Title</h2>
+
 <div id="postList">
     @foreach (var post in Model.OrderBy(x => x.Posted))
     {
+        <h2>@ViewBag.threadTitle</h2>
         <div id="postThreads">
             <h4>@post.Name - @post.Posted</h4>
             <p>@post.Text</p>

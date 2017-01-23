@@ -25,6 +25,7 @@ namespace Web_Forum.Controllers
 
             var posts = new List<PostViewModel>();
             posts.Transform(repo.GetPosts(id));
+            ViewBag.threadTitle = repo.GetThreadById(id).Title;
             return View(posts);
         }
 

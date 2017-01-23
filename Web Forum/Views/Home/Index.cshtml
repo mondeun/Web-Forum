@@ -27,24 +27,27 @@
     <div>
         @Ajax.ActionLink("New Thread", "AddThread", options)
         <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
-        <h3>Sub-Forums</h3>
+        <h3>Topics</h3>
         <div id="createThread"></div>
         <div>
-            <ul>
+            
                 @{
                     //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
                     foreach (var thread in Model.OrderByDescending(x => x.LastPosted))
                     {
                         @*<h3>@subforum.Title</h3>*@
-                        <li class="form-control alert-success">
-                            @Html.ActionLink(thread.Title, "Index", "Thread", new { id = thread.Id, title = thread.Title }, null)
-                            <span><small>Posts</small> @thread.NumberOfPosts</span>
-                            <span><small>Created</small> @thread.DateCreated</span>
-                            <span><small>Last Posted</small> @thread.LastPosted</span>
-                        </li>
+                        
+                            @Html.ActionLink(
+                           thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted}",
+                           "Index",
+                           "Thread",
+                            new { id = thread.Id,
+                                title = thread.Title },
+                            new { @class="list-group-item"})
+                       
                     }
                 }
-            </ul>
+            
         </div>
     </div>
 </div>
