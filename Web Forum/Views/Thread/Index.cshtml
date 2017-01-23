@@ -14,9 +14,9 @@
 
 
 <div id="postList">
+    <h2>@ViewBag.threadTitle</h2>
     @foreach (var post in Model.OrderBy(x => x.Posted))
     {
-        <h2>@ViewBag.threadTitle</h2>
         <div id="postThreads">
             <h4>@post.Name - @post.Posted</h4>
             <p>@post.Text</p>

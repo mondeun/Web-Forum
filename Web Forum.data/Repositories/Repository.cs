@@ -76,20 +76,22 @@ namespace Web_Forum.data.Repositories
 
         public ThreadDTO GetThreadById(Guid id)
         {
-            var thread = new Thread();
             using (var ctx = new WebForumContext())
             {
-                thread = ctx.Threads.Include("Posts").FirstOrDefault(x => x.Id == id);
+                var thread = ctx.Threads.Include("Posts").FirstOrDefault(x => x.Id == id);
+
+                var dto = new ThreadDTO
+                {
+                    Title = thread.Title,
+
+                };
+                return dto;
             }
-
-            var dto = new ThreadDTO();
-
-            return dto;
         }
 
         public List<IndexThreadDTO> GetThreads()
         {
-            using (var ctx = new WebForumContext())
+            using ( var ctx = new WebForumContext())
             {
                 var threads = ctx.Threads.Include("Posts").ToList();
 
