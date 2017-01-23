@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Web_Forum.data.DTO;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Models;
