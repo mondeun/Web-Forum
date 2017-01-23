@@ -113,5 +113,26 @@ namespace Web_Forum.data.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public int getLikes(Guid threadId)
+        {
+            var likes = 0;
+            using (var ctx = new WebForumContext())
+            {
+                likes = ctx.Threads.Find(threadId).Likes;
+            }
+            return likes;
+        }
+        public int updateLikes(Guid threadId)
+        {
+            var likes = 0;
+            likes = getLikes(threadId) + 1;
+            var thread = new Thread { Id = threadId, Likes = likes };
+            using (var ctx = new WebForumContext())
+            {
+                ctx.Threads.Attach(thread);
+            }
+            return likes;
+        }
     }
 }
