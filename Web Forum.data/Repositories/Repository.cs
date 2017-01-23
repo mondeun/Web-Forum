@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,8 @@ namespace Web_Forum.data.Repositories
                 Id = Guid.NewGuid(),
                 Name = post.Name,
                 Text = post.Text,
-                Posted = DateTime.UtcNow
+                Posted = DateTime.UtcNow,
+                ThreadId = post.ThreadId
             };
             using (var ctx = new WebForumContext())
             {
@@ -59,7 +61,7 @@ namespace Web_Forum.data.Repositories
             var postsFromThreadId = new List<PostDTO>();
             using (var ctx = new WebForumContext())
             {
-                var posts = ctx.Posts.Where(x => x.Thread.Id == threadId).ToList();
+                var posts = ctx.Posts.Include("Thread").Where(x => x.Thread.Id == threadId).ToList();
 
                 posts.ForEach(x => postsFromThreadId.Add(new PostDTO
                 {
@@ -77,7 +79,7 @@ namespace Web_Forum.data.Repositories
             var thread = new Thread();
             using (var ctx = new WebForumContext())
             {
-                thread = ctx.Threads.Include("Post").FirstOrDefault(x => x.Id == id);
+                thread = ctx.Threads.Include("Posts").FirstOrDefault(x => x.Id == id);
             }
 
             var dto = new ThreadDTO();

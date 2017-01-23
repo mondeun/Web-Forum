@@ -25,9 +25,9 @@ namespace Web_Forum.Controllers
         [HttpGet]
         public ActionResult AddThread()
         {
-            // TODO Add logic here
+            var thread = new ThreadViewModel();
 
-            return PartialView();
+            return PartialView(thread);
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace Web_Forum.Controllers
             { 
                 repo.AddThread(thread.Transform());
 
-                return View("Index");
+                return PartialView("Index");
             }
 
             return PartialView(thread);

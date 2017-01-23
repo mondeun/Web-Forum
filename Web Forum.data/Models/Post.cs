@@ -14,6 +14,6 @@ namespace Web_Forum.data.Models
         public DateTime Posted { get; set; }
         public Guid ThreadId { get; set; }
 
-        public virtual Thread Thread { get; set; }
+        public Thread Thread { get; set; }
     }
 }

@@ -13,8 +13,8 @@
 }
 
 <h2>Title</h2>
-<div>
-    @foreach (var post in Model)
+<div id="postList">
+    @foreach (var post in Model.OrderBy(x => x.Posted))
     {
         <div id="postThreads">
             <h4>@post.Name - @post.Posted</h4>
@@ -22,34 +22,9 @@
         </div>
     }
     <h3>@Ajax.ActionLink("Reply", "AddPost", new { id = Model.First().ThreadId }, options)</h3>
-    
-    <div id="createPost"></div>
 </div>
-<div>
-    @using (Html.BeginForm()) 
-    {
-        @Html.AntiForgeryToken()
-    
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-12">
-                    <input type="text" class="form-control"/>
-                    <div class="col-lg-3 col col-md-12">
-                        @*<select class="form-control"></select>*@
-                        <div class="btn-toolbar">
-                            <button type="button" class="btn-primary">Submit</button>
-                            <button type="button" class="btn-danger">Discard</button>
-                        </div>
-                        <div class="row">
-                        <textarea class=""></textarea>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-</div>
+<div id="createPost"></div>
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", "Home")
 </div>

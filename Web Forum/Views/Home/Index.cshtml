@@ -18,9 +18,7 @@
         <div class="text-center">
             Join and share your knowledge through your school portal.
             Make your connections and share your ideas.
-            Be welcome by once joined.<br />
-            <br />
-            <button class="btn btn-primary">Join In</button>
+            Be welcome by once joined.
         </div>
 
     </div>
@@ -28,9 +26,9 @@
 
     <div>
         @Ajax.ActionLink("New Thread", "AddThread", options)
-        <button id="newTopic" type="button" class="btn-primary">New Topic</button>
+        <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
         <h3>Sub-Forums</h3>
-        
+        <div id="createThread"></div>
         <div id="threadList">
             <ul>
                 @{
@@ -47,16 +45,7 @@
                 }
             </ul>
         </div>
-        <div id="createThread"></div>
-
-
-        
     </div>
-    <!---->
-    
-
-
-    <div></div>
 </div>
 
 

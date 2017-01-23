@@ -31,21 +31,22 @@ namespace Web_Forum.Controllers
         [HttpGet]
         public ActionResult AddPost(Guid id)
         {
-            // TODO Add logic here
+            var post = new PostViewModel { ThreadId = id };
 
-            return PartialView();
+            return PartialView(post);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddPost(PostViewModel post)
         {
-            //TODO Add logic here
             if (ModelState.IsValid)
             {
                 repo.AddPost(post.Transform());
 
-                return RedirectToAction("Index", post.ThreadId);
+                var posts = new List<PostViewModel>();
+                posts.Transform(repo.GetPosts(post.ThreadId));
+                return PartialView("Index", posts);
             }
 
             return PartialView(post);
