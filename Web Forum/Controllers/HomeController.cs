@@ -38,7 +38,9 @@ namespace Web_Forum.Controllers
             { 
                 repo.AddThread(thread.Transform());
 
-                return PartialView("Index");
+                var threads = new List<IndexThreadViewModel>();
+                threads.Transform(repo.GetThreads());
+                return PartialView("Index", threads);
             }
 
             return PartialView(thread);

@@ -1,5 +1,5 @@
 ﻿@model List<Web_Forum.Models.IndexThreadViewModel>
-@{ 
+@{
     var options = new AjaxOptions
     {
         HttpMethod = "Get",
@@ -8,7 +8,7 @@
     };
 }
 
-<div class="container">
+<div class="container" id="threadList">
     @*<h1 class="text-center">@ViewBag.Title</h1>*@
 
     <div class="jumbotron">
@@ -29,17 +29,18 @@
         <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
         <h3>Sub-Forums</h3>
         <div id="createThread"></div>
-        <div id="threadList">
+        <div>
             <ul>
                 @{
                     //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
-                    foreach (var thread in Model)
+                    foreach (var thread in Model.OrderByDescending(x => x.LastPosted))
                     {
                         @*<h3>@subforum.Title</h3>*@
                         <li class="form-control alert-success">
                             @Html.ActionLink(thread.Title, "Index", "Thread", new { id = thread.Id, title = thread.Title }, null)
                             <span><small>Posts</small> @thread.NumberOfPosts</span>
                             <span><small>Created</small> @thread.DateCreated</span>
+                            <span><small>Last Posted</small> @thread.LastPosted</span>
                         </li>
                     }
                 }
