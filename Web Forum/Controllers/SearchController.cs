@@ -18,7 +18,6 @@ namespace Web_Forum.Controllers
         public ActionResult Results(string search)
         {
             var results = new SearchViewModel();
-
             results.Threads.Transform(repo.SearchThreads(search));
             results.Posts.Transform(repo.SearchPosts(search));
 
