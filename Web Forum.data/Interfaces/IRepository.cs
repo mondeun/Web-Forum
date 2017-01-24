@@ -14,5 +14,7 @@ namespace Web_Forum.data.Interfaces
         List<PostDTO> GetPosts(Guid id);
         int GetLikes(Guid id);
         void UpdateLikes(Guid threadId);
+        List<IndexThreadDTO> SearchThreads(string search);
+        List<PostDTO> SearchPosts(string search);
     }
 }

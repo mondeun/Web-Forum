@@ -15,13 +15,7 @@
 
 <div id="postList">
     <h2>@ViewBag.threadTitle</h2>
-    @foreach (var post in Model.OrderBy(x => x.Posted))
-    {
-        <div id="postThreads">
-            <h4>@post.Name - @post.Posted</h4>
-            <p>@post.Text</p>
-        </div>
-    }
+    @Html.Partial("Posts", Model)
     <h3>@Ajax.ActionLink("Reply", "AddPost", new { id = Model.First().ThreadId }, options)</h3>
 </div>
 <div id="createPost"></div>
