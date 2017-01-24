@@ -12,7 +12,7 @@ namespace Web_Forum.data.Interfaces
         ThreadDTO GetThreadById(Guid id);
         List<PostDTO> GetPosts();
         List<PostDTO> GetPosts(Guid id);
-
-        int getLikes(Guid id);
+        int GetLikes(Guid id);
+        void UpdateLikes(Guid threadId);
     }
 }

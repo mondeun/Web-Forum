@@ -9,5 +9,6 @@ namespace Web_Forum.data.DTO
         public DateTime DateCreated { get; set; }
         public DateTime LastPosted { get; set; }
         public int NumberOfPosts { get; set; }
+        public int Likes { get; set; }
     }
 }

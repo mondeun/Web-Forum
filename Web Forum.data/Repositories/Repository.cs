@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Web_Forum.data.DTO;
 using Web_Forum.data.Interfaces;
@@ -111,25 +112,25 @@ namespace Web_Forum.data.Repositories
             throw new NotImplementedException();
         }
 
-        public int getLikes(Guid threadId)
+        public int GetLikes(Guid threadId)
         {
-            var likes = 0;
             using (var ctx = new WebForumContext())
             {
-                likes = ctx.Threads.Find(threadId).Likes;
+                var thread = ctx.Threads.Find(threadId);
+
+                return thread?.Likes ?? 0;
             }
-            return likes;
         }
-        public int updateLikes(Guid threadId)
+        public void UpdateLikes(Guid threadId)
         {
-            var likes = 0;
-            likes = getLikes(threadId) + 1;
-            var thread = new Thread { Id = threadId, Likes = likes };
             using (var ctx = new WebForumContext())
             {
-                ctx.Threads.Attach(thread);
+                var thread = ctx.Threads.Find(threadId);
+                thread.Likes += 1;
+                ctx.Entry(thread).State = EntityState.Modified;
+
+                ctx.SaveChanges();
             }
-            return likes;
         }
     }
 }

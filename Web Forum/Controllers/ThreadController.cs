@@ -22,6 +22,7 @@ namespace Web_Forum.Controllers
             var posts = new List<PostViewModel>();
             posts.Transform(repo.GetPosts(id));
             ViewBag.threadTitle = repo.GetThreadById(id).Title;
+            ViewBag.Likes = repo.GetLikes(id);
             return View(posts);
         }
 
@@ -48,6 +49,15 @@ namespace Web_Forum.Controllers
 
             return PartialView(post);
         }
-       
+
+        [HttpPost]
+        public ActionResult AddLike(Guid id)
+        {
+            repo.UpdateLikes(id);
+
+            var posts = new List<PostViewModel>();
+            posts.Transform(repo.GetPosts(id));
+            return PartialView("Index", posts);
+        }
     }
 }
