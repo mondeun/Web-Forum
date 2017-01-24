@@ -53,9 +53,9 @@
     <Compile Include="DTO\PostDTO.cs" />
     <Compile Include="DTO\ThreadDTO.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Migrations\201701201648016_First Migration.cs" />
-    <Compile Include="Migrations\201701201648016_First Migration.Designer.cs">
-      <DependentUpon>201701201648016_First Migration.cs</DependentUpon>
+    <Compile Include="Migrations\201701241401522_First Migration.cs" />
+    <Compile Include="Migrations\201701241401522_First Migration.Designer.cs">
+      <DependentUpon>201701241401522_First Migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
@@ -69,8 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701201648016_First Migration.resx">
-      <DependentUpon>201701201648016_First Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701241401522_First Migration.resx">
+      <DependentUpon>201701241401522_First Migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
