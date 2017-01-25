@@ -221,6 +221,7 @@
     <Content Include="Views\Thread\AddPost.cshtml" />
     <Content Include="Views\Shared\Posts.cshtml" />
     <Content Include="Views\Search\Results.cshtml" />
+    <Content Include="Views\Shared\Threads.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

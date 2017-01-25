@@ -1,4 +1,5 @@
-﻿@model Web_Forum.Models.SearchViewModel
+﻿@using Web_Forum.Models
+@model Web_Forum.Models.SearchViewModel
 
 @{
     ViewBag.Title = "Results";
@@ -7,6 +8,7 @@
 <h2>Results</h2>
 <div>
     <h3>Threads</h3>
+    @Html.Partial("Threads", Model.Threads)
 </div>
 <div>
     <h3>Posts</h3>
