@@ -64,10 +64,12 @@ namespace Web_Forum.data.Repositories
 
                 posts.ForEach(x => postsFromThreadId.Add(new PostDTO
                 {
+                    Id = x.Id,
                     ThreadId = x.Thread.Id,
                     Name = x.Name,
                     Text = x.Text,
-                    Posted = x.Posted
+                    Posted = x.Posted,
+                    Likes = x.Likes
                 }));
             }
             return postsFromThreadId;
@@ -132,6 +134,29 @@ namespace Web_Forum.data.Repositories
                 thread.Likes += 1;
                 likesAmount = thread.Likes;
                 ctx.Entry(thread).State = EntityState.Modified;
+
+                ctx.SaveChanges();
+            }
+            return likesAmount;
+        }
+        public int GetPostLikes(Guid postId)
+        {
+            using (var ctx = new WebForumContext())
+            {
+                var post = ctx.Posts.Find(postId);
+
+                return post?.Likes ?? 0;
+            }
+        }
+        public int UpdatePostLikes(Guid postId)
+        {
+            var likesAmount = 0;
+            using (var ctx = new WebForumContext())
+            {
+                var post = ctx.Posts.Find(postId);
+                post.Likes += 1;
+                likesAmount = post.Likes;
+                ctx.Entry(post).State = EntityState.Modified;
 
                 ctx.SaveChanges();
             }

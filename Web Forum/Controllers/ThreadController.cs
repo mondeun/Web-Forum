@@ -59,6 +59,15 @@ namespace Web_Forum.Controllers
             posts.Transform(repo.GetPosts(id));
             return PartialView("_AddLike", likesAmount);
         }
+        [HttpPost]
+        public ActionResult AddPostLike(Guid id)
+        {
+            var likesAmount = repo.UpdatePostLikes(id);
 
+            var posts = new List<PostViewModel>();
+            posts.Transform(repo.GetPosts(id));
+
+            return PartialView("_AddLike", likesAmount);
+        }
     }
 }

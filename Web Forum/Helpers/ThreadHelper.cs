@@ -33,6 +33,7 @@ namespace Web_Forum.Helpers
         {
             dtos.ForEach(x => models.Add(new PostViewModel
             {
+                Id = x.Id,
                 ThreadId = x.ThreadId,
                 Name = x.Name,
                 Text = x.Text,

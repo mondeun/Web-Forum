@@ -5,6 +5,7 @@ namespace Web_Forum.Models
 {
     public class PostViewModel
     {
+        public Guid Id { get; set; }
         public Guid ThreadId { get; set; }
         public string Name { get; set; }
         [DataType(DataType.MultilineText)]
