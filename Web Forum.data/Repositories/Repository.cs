@@ -174,5 +174,24 @@ namespace Web_Forum.data.Repositories
                 return dtos;
             }
         }
+
+        public UserDTO GetUserByCredentials(string email, string password)
+        {
+            using (var ctx = new WebForumContext())
+            {
+                var user = ctx.Users.FirstOrDefault(x => x.Email == email && x.Password == password) ?? new User();
+
+                var dto = new UserDTO
+                {
+                    Id = user.Id,
+                    Name = user.Name,
+                    Email = user.Email,
+                    Password = user.Password,
+                    IsModerator = user.IsModerator
+                };
+
+                return dto;
+            }
+        }
     }
 }

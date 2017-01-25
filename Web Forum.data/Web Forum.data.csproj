@@ -52,6 +52,7 @@
     <Compile Include="DTO\IndexThreadDTO.cs" />
     <Compile Include="DTO\PostDTO.cs" />
     <Compile Include="DTO\ThreadDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Migrations\201701251003476_First Migrations.cs" />
     <Compile Include="Migrations\201701251003476_First Migrations.Designer.cs">
