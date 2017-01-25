@@ -3,7 +3,7 @@ namespace Web_Forum.data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FirstMigration : DbMigration
+    public partial class FirstMigrations : DbMigration
     {
         public override void Up()
         {
@@ -38,9 +38,9 @@ namespace Web_Forum.data.Migrations
                 c => new
                     {
                         Id = c.Guid(nullable: false),
-                        Name = c.String(nullable: false),
-                        Email = c.String(nullable: false),
-                        Password = c.String(nullable: false),
+                        Name = c.String(),
+                        Email = c.String(),
+                        Password = c.String(),
                         IsModerator = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
