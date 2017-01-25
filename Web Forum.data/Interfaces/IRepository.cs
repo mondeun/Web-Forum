@@ -16,5 +16,6 @@ namespace Web_Forum.data.Interfaces
         void UpdateLikes(Guid threadId);
         List<IndexThreadDTO> SearchThreads(string search);
         List<PostDTO> SearchPosts(string search);
+        UserDTO GetUserByCredentials(string email, string password);
     }
 }

@@ -59,5 +59,6 @@ namespace Web_Forum.Controllers
             posts.Transform(repo.GetPosts(id));
             return PartialView("Index", posts);
         }
+
     }
 }
