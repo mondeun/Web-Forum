@@ -11,21 +11,13 @@
 <div class="container" id="threadList">
     @*<h1 class="text-center">@ViewBag.Title</h1>*@
 
-    <div class="jumbotron">
-
-
-        <h3 class="text-center">Join the EC Utbilding Community</h3>
-        <div class="text-center">
-            Join and share your knowledge through your school portal.
-            Make your connections and share your ideas.
-            Be welcome by once joined.
-        </div>
+   
 
     </div>
     <!---->
 
     <div>
-        @Ajax.ActionLink("New Thread", "AddThread", options)
+       @Ajax.ActionLink("New Thread", "AddThread", new { id = "ide" }, options)
         <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
         <h3>Topics</h3>
         <div id="createThread"></div>

@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
-    
+   
         
 </head>
 <body>
@@ -20,15 +20,29 @@
                 </button>
                 @Html.ActionLink("EC Web Forum", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" >
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+
                 </ul>
+                
+                    <form class="navbar-form navbar-left">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <div class="input-group-btn">
+                               
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            
+           
             </div>
-        </div>
-    </div>
+            
+                </div>
+       
     <div class="container body-content">
         @RenderBody()
         <hr />
