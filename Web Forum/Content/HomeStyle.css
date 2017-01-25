@@ -1,5 +1,18 @@
 ﻿body {
+  
 }
 .center {
+    margin: 0 auto 0 auto;
+}
+
+.navbar navbar-inverse navbar-fixed-top{
+   color: #f00; 
+}
+
+.zumbatron{
+    background-color: transparent !important; 
+    margin: 5% auto 0 auto;  
+}
+#centerPhoto {
     margin: 0 auto 0 auto;
 }
