@@ -63,7 +63,8 @@ namespace Web_Forum.data.Migrations
                     Name = "Harry",
                     Posted = DateTime.UtcNow,
                     Text = "Detta är ett test",
-                    ThreadId = Guid.Parse("3cab7754-2836-466f-be16-da27e4ecb287")
+                    ThreadId = Guid.Parse("3cab7754-2836-466f-be16-da27e4ecb287"),
+                    Likes = 50
                 },
                 new Post
                 {
@@ -71,7 +72,8 @@ namespace Web_Forum.data.Migrations
                     Name = "Glenn",
                     Posted = DateTime.UtcNow,
                     Text = "Några saker",
-                    ThreadId = Guid.Parse("3cab7754-2836-466f-be16-da27e4ecb287")
+                    ThreadId = Guid.Parse("3cab7754-2836-466f-be16-da27e4ecb287"),
+                    Likes = 40
                 },
                 new Post
                 {
@@ -79,7 +81,8 @@ namespace Web_Forum.data.Migrations
                     Name = "Gustav",
                     Posted = DateTime.UtcNow,
                     Text = "Snart är det dags för semlor!!!",
-                    ThreadId = Guid.Parse("1895a78f-5e10-4757-8f69-cba9a691de0e")
+                    ThreadId = Guid.Parse("1895a78f-5e10-4757-8f69-cba9a691de0e"),
+                    Likes = 15
                 },
                 new Post
                 {
@@ -87,7 +90,8 @@ namespace Web_Forum.data.Migrations
                     Name = "Primadonna",
                     Posted = DateTime.UtcNow,
                     Text = "Glömde bort mina nycklar på bussen. HJÄLP!",
-                    ThreadId = Guid.Parse("1f820aad-3c43-4c74-bf8e-23940ca6f664")
+                    ThreadId = Guid.Parse("1f820aad-3c43-4c74-bf8e-23940ca6f664"),
+                    Likes = 9
                 },
                 new Post
                 {
@@ -95,7 +99,8 @@ namespace Web_Forum.data.Migrations
                     Name = "Glenn",
                     Posted = DateTime.UtcNow,
                     Text = "Haha",
-                    ThreadId = Guid.Parse("1f820aad-3c43-4c74-bf8e-23940ca6f664")
+                    ThreadId = Guid.Parse("1f820aad-3c43-4c74-bf8e-23940ca6f664"),
+                    Likes = 16
                 },
                 new Post
                 {
@@ -103,7 +108,8 @@ namespace Web_Forum.data.Migrations
                     Name = "Anonym",
                     Posted = DateTime.UtcNow,
                     Text = "Tack för nycklarna!",
-                    ThreadId = Guid.Parse("1f820aad-3c43-4c74-bf8e-23940ca6f664")
+                    ThreadId = Guid.Parse("1f820aad-3c43-4c74-bf8e-23940ca6f664"),
+                    Likes = 85
                 }
             );
 

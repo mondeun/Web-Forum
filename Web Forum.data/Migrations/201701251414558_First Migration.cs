@@ -3,7 +3,7 @@ namespace Web_Forum.data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FirstMigrations : DbMigration
+    public partial class FirstMigration : DbMigration
     {
         public override void Up()
         {
@@ -16,6 +16,7 @@ namespace Web_Forum.data.Migrations
                         Text = c.String(),
                         Posted = c.DateTime(nullable: false),
                         ThreadId = c.Guid(nullable: false),
+                        Likes = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Threads", t => t.ThreadId, cascadeDelete: true)
