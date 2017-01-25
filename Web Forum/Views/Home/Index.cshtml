@@ -25,7 +25,7 @@
     <!---->
 
     <div>
-        @Ajax.ActionLink("New Thread", "AddThread", options)
+        @Ajax.ActionLink("New Thread", "AddThread", options, null,new  {@Class="btn btn-default" })
         <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
         <h3>Topics</h3>
         <div id="createThread"></div>
@@ -38,7 +38,7 @@
                         @*<h3>@subforum.Title</h3>*@
                         
                             @Html.ActionLink(
-                           thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted}",
+                           thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted} Likes {thread.Likes}",
                            "Index",
                            "Thread",
                             new { id = thread.Id,
