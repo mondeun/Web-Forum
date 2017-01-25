@@ -36,7 +36,8 @@ namespace Web_Forum.Helpers
                 ThreadId = x.ThreadId,
                 Name = x.Name,
                 Text = x.Text,
-                Posted = x.Posted
+                Posted = x.Posted,
+                Likes = x.Likes
             }));
 
             return models;

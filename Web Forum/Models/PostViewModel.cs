@@ -10,5 +10,7 @@ namespace Web_Forum.Models
         [DataType(DataType.MultilineText)]
         public string Text { get; set; }
         public DateTime Posted { get; set; }
+
+        public int Likes { get; set; }
     }
 }

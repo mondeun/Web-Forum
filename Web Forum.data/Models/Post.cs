@@ -9,6 +9,7 @@ namespace Web_Forum.data.Models
         public string Text { get; set; }
         public DateTime Posted { get; set; }
         public Guid ThreadId { get; set; }
+        public int Likes { get; set; }
 
         public Thread Thread { get; set; }
     }

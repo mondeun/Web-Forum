@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 
 namespace Web_Forum.data.DTO
 {
@@ -8,5 +9,6 @@ namespace Web_Forum.data.DTO
         public string Name { get; set; }
         public string Text { get; set; }
         public DateTime Posted { get; set; }
+        public int Likes { get; set; }
     }
 }
