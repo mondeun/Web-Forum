@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Web_Forum.Models
 {
@@ -6,6 +7,7 @@ namespace Web_Forum.Models
     {
         public Guid ThreadId { get; set; }
         public string Name { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Text { get; set; }
         public DateTime Posted { get; set; }
     }
