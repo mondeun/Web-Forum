@@ -19,5 +19,7 @@ namespace Web_Forum.data
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<WebForumContext>());
         }
+
+        public System.Data.Entity.DbSet<Web_Forum.Models.IndexThreadViewModel> IndexThreadViewModels { get; set; }
     }
 }

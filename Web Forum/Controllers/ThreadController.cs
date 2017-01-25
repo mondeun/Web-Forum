@@ -57,7 +57,7 @@ namespace Web_Forum.Controllers
 
             var posts = new List<PostViewModel>();
             posts.Transform(repo.GetPosts(id));
-            return PartialView("Index", posts);
+            return PartialView("AddLike", posts);
         }
 
     }
