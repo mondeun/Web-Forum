@@ -29,6 +29,7 @@ namespace Web_Forum.data.Migrations
                         Title = c.String(),
                         DateCreated = c.DateTime(nullable: false),
                         LastPosted = c.DateTime(nullable: false),
+                        Likes = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

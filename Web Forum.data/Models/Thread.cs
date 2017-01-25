@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Web_Forum.data.Models
 {
@@ -14,6 +10,7 @@ namespace Web_Forum.data.Models
         public virtual ICollection<Post> Posts { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime LastPosted { get; set; }
+        public int Likes { get; set; }
 
         public Thread()
         {

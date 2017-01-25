@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Web_Forum.data.DTO;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Models;
@@ -36,7 +34,8 @@ namespace Web_Forum.data.Repositories
                 Id = Guid.NewGuid(),
                 Title = dto.Title,
                 DateCreated = DateTime.UtcNow,
-                LastPosted = DateTime.UtcNow
+                LastPosted = DateTime.UtcNow,
+                Likes = 0
             };
 
             var post = new Post
@@ -76,20 +75,22 @@ namespace Web_Forum.data.Repositories
 
         public ThreadDTO GetThreadById(Guid id)
         {
-            var thread = new Thread();
             using (var ctx = new WebForumContext())
             {
-                thread = ctx.Threads.Include("Posts").FirstOrDefault(x => x.Id == id);
+                var thread = ctx.Threads.Include("Posts").FirstOrDefault(x => x.Id == id);
+
+                var dto = new ThreadDTO
+                {
+                    Title = thread.Title,
+                    // TODO Fill in rest
+                };
+                return dto;
             }
-
-            var dto = new ThreadDTO();
-
-            return dto;
         }
 
         public List<IndexThreadDTO> GetThreads()
         {
-            using (var ctx = new WebForumContext())
+            using ( var ctx = new WebForumContext())
             {
                 var threads = ctx.Threads.Include("Posts").ToList();
 
@@ -100,7 +101,8 @@ namespace Web_Forum.data.Repositories
                     Title = x.Title,
                     DateCreated = x.DateCreated,
                     LastPosted = x.Posts.Last().Posted,
-                    NumberOfPosts = x.Posts.Count
+                    NumberOfPosts = x.Posts.Count,
+                    Likes = x.Likes
                 }));
 
                 return dtos;
@@ -110,6 +112,67 @@ namespace Web_Forum.data.Repositories
         public List<PostDTO> GetPosts()
         {
             throw new NotImplementedException();
+        }
+
+        public int GetLikes(Guid threadId)
+        {
+            using (var ctx = new WebForumContext())
+            {
+                var thread = ctx.Threads.Find(threadId);
+
+                return thread?.Likes ?? 0;
+            }
+        }
+        public void UpdateLikes(Guid threadId)
+        {
+            using (var ctx = new WebForumContext())
+            {
+                var thread = ctx.Threads.Find(threadId);
+                thread.Likes += 1;
+                ctx.Entry(thread).State = EntityState.Modified;
+
+                ctx.SaveChanges();
+            }
+        }
+
+        public List<IndexThreadDTO> SearchThreads(string search)
+        {
+            using (var ctx = new WebForumContext())
+            {
+                var threads = ctx.Threads.Include("Posts").Where(x => x.Title.Contains(search)).ToList();
+
+                var dtos = new List<IndexThreadDTO>();
+                threads.ForEach(x => dtos.Add(new IndexThreadDTO
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    DateCreated = x.DateCreated,
+                    LastPosted = x.Posts.Last().Posted,
+                    NumberOfPosts = x.Posts.Count,
+                    Likes = x.Likes
+                }));
+
+                return dtos;
+            }
+        }
+
+        public List<PostDTO> SearchPosts(string search)
+        {
+            using (var ctx = new WebForumContext())
+            {
+                var posts = ctx.Posts.Include("Thread").Where(x => x.Text.Contains(search)).ToList();
+
+                var dtos = new List<PostDTO>();
+                posts.ForEach(x => dtos.Add(new PostDTO
+                {
+                    ThreadId = x.ThreadId,
+                    Name = x.Name,
+                    Text = x.Text,
+                    Posted = x.Posted
+                }));
+
+                return dtos;
+            }
         }
     }
 }

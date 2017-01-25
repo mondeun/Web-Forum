@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - EC Web Forum</title>
+    <link href="~/Content/HomeStyle.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
    
@@ -22,7 +23,7 @@
             </div>
             <div class="navbar-collapse collapse" >
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Forum", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
 
@@ -53,6 +54,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>

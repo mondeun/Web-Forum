@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Web_Forum.data.Interfaces;
-using Web_Forum.data.Models;
 using Web_Forum.data.Repositories;
 using Web_Forum.Helpers;
 using Web_Forum.Models;
-using Web_Forum.Helpers;
 
 namespace Web_Forum.Controllers
 {
@@ -26,6 +22,7 @@ namespace Web_Forum.Controllers
             var posts = new List<PostViewModel>();
             posts.Transform(repo.GetPosts(id));
             ViewBag.threadTitle = repo.GetThreadById(id).Title;
+            ViewBag.Likes = repo.GetLikes(id);
             return View(posts);
         }
 
@@ -52,6 +49,15 @@ namespace Web_Forum.Controllers
 
             return PartialView(post);
         }
-       
+
+        [HttpPost]
+        public ActionResult AddLike(Guid id)
+        {
+            repo.UpdateLikes(id);
+
+            var posts = new List<PostViewModel>();
+            posts.Transform(repo.GetPosts(id));
+            return PartialView("Index", posts);
+        }
     }
 }

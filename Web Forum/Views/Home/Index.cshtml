@@ -8,16 +8,24 @@
     };
 }
 
-<div class="container" id="threadList">
+<div class="container center" id="threadList">
     @*<h1 class="text-center">@ViewBag.Title</h1>*@
 
-   
+    <div class="jumbotron">
+
+
+        <h3 class="text-center">Join the EC Utbilding Community</h3>
+        <div class="text-center">
+            Join and share your knowledge through your school portal.
+            Make your connections and share your ideas.
+            Be welcome by once joined.
+        </div>
 
     </div>
     <!---->
 
     <div>
-       @Ajax.ActionLink("New Thread", "AddThread", new { id = "ide" }, options)
+        @Ajax.ActionLink("New Thread", "AddThread",null, new { @Class = "btn btn-default" }, options)
         <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
         <h3>Topics</h3>
         <div id="createThread"></div>
@@ -30,7 +38,7 @@
                         @*<h3>@subforum.Title</h3>*@
                         
                             @Html.ActionLink(
-                           thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted}",
+                           thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted} Likes {thread.Likes}",
                            "Index",
                            "Thread",
                             new { id = thread.Id,

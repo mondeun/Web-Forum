@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Web_Forum.Models
+﻿namespace Web_Forum.Models
 {
     public class ThreadViewModel
     {

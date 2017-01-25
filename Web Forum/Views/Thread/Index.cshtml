@@ -3,7 +3,7 @@
 //ViewBag.Title = "Index";
 }
 
-@{ 
+@{
     var options = new AjaxOptions
     {
         HttpMethod = "Get",
@@ -11,21 +11,34 @@
         InsertionMode = InsertionMode.Replace
     };
 }
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" id="postList">
 
 
-<div id="postList">
-    @foreach (var post in Model.OrderBy(x => x.Posted))
-    {
-        <h2>@ViewBag.threadTitle</h2>
-        <div id="postThreads">
-            <h4>@post.Name - @post.Posted</h4>
-            <p>@post.Text</p>
-        </div>
-    }
-    <h3>@Ajax.ActionLink("Reply", "AddPost", new { id = Model.First().ThreadId }, options)</h3>
+        <h2 class="text-center">@ViewBag.threadTitle</h2>
+        <ul>
+            <li class="list-group-item">
+                @Html.Partial("Posts", Model)
+                <h3>@Ajax.ActionLink("Reply", "AddPost", new { id = Model.First().ThreadId }, options, new { @class = "btn btn-default" })</h3>
+                @Ajax.ActionLink("Like", "AddLike", new  { id = Model.First().ThreadId }, new AjaxOptions {  HttpMethod = "Post", UpdateTargetId = "createPost", InsertionMode = InsertionMode.Replace}, new { @class = "btn btn-success glyphicon glyphicon-ok-circle" })
+            </li>
+        </ul>
+
+
+    </div>
+    <div class="col-md-3"></div>
 </div>
-<div id="createPost"></div>
-
+<div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-4"></div>
+    <div class="col-md-4 col-sm-4 col-xs-4"><div style="margin:0 auto 0 auto" id="createPost"></div></div>
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        
+    </div>
+   
+</div>
 <div>
-    @Html.ActionLink("Back to List", "Index", "Home")
+    @Html.ActionLink("Back to List", "Index", "Home", null, new { @class = "btn btn-primary" })
 </div>
+@*<span class="glyphicon glyphicon-ok-circle"></span>*@
+@*<span> <b>Total Likes: </b>@ViewBag.Likes</span>*@

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Web_Forum.data.DTO
 {
@@ -13,5 +9,6 @@ namespace Web_Forum.data.DTO
         public DateTime DateCreated { get; set; }
         public DateTime LastPosted { get; set; }
         public int NumberOfPosts { get; set; }
+        public int Likes { get; set; }
     }
 }
