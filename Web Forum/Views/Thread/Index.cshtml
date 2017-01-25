@@ -21,8 +21,8 @@
                 @Html.Partial("Posts", Model)
 
                 <h3>@Ajax.ActionLink("Reply", "AddPost", new { id = Model.First().ThreadId }, options, new { @class = "btn btn-default" })</h3>
-                @Ajax.ActionLink(" ", "AddLike", new { id = Model.First().ThreadId }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "postList", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-success glyphicon glyphicon-ok-circle" })
-                <span><b>Likes:</b>  @ViewBag.Likes</span>
+                @Ajax.ActionLink(" ", "AddLike", new { id = Model.First().ThreadId }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "changingLikesValue", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-success glyphicon glyphicon-ok-circle" })
+                <span id="changingLikesValue"><b>Likes:</b>  @ViewBag.Likes</span>
             </li>
         </ul>
     </div>

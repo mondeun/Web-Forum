@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Web_Forum.data.Models;
 using System.Data.Entity;
 
+
 namespace Web_Forum.data
 {
     public class WebForumContext : DbContext
@@ -20,6 +21,6 @@ namespace Web_Forum.data
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<WebForumContext>());
         }
 
-        public System.Data.Entity.DbSet<Web_Forum.Models.IndexThreadViewModel> IndexThreadViewModels { get; set; }
+       
     }
 }

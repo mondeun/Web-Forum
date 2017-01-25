@@ -225,7 +225,7 @@
     <Content Include="Views\Shared\Posts.cshtml" />
     <Content Include="Views\Search\Results.cshtml" />
     <Content Include="Views\Shared\Threads.cshtml" />
-    <Content Include="Views\Thread\AddLike.cshtml" />
+    <Content Include="Views\Thread\_AddLike.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -53,11 +53,11 @@ namespace Web_Forum.Controllers
         [HttpPost]
         public ActionResult AddLike(Guid id)
         {
-            repo.UpdateLikes(id);
+            var likesAmount = repo.UpdateLikes(id);
 
             var posts = new List<PostViewModel>();
             posts.Transform(repo.GetPosts(id));
-            return PartialView("AddLike", posts);
+            return PartialView("_AddLike", likesAmount);
         }
 
     }
