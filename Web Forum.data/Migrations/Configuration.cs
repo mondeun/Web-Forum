@@ -106,6 +106,17 @@ namespace Web_Forum.data.Migrations
                     ThreadId = Guid.Parse("1f820aad-3c43-4c74-bf8e-23940ca6f664")
                 }
             );
+
+            context.Users.AddOrUpdate(x => x.Id,
+                new User
+                {
+                    Id = Guid.Parse("1f820aad-3c43-4c74-bf8e-23940ca65564"),
+                    Name = "Emilio Estevez",
+                    Email = "cool_cat46@hotmail.com",
+                    Password = "qwerty",
+                    IsModerator = true
+                }
+            );
         }
     }
 }

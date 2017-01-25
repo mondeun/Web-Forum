@@ -13,7 +13,7 @@ namespace Web_Forum.data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201701241401522_First Migration"; }
+            get { return "201701250849491_First Migration"; }
         }
         
         string IMigrationMetadata.Source
