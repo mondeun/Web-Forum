@@ -50,7 +50,9 @@ namespace Web_Forum.Helpers
                 Title = x.Title,
                 DateCreated = x.DateCreated,
                 LastPosted = x.LastPosted,
-                NumberOfPosts = x.NumberOfPosts
+                NumberOfPosts = x.NumberOfPosts,
+                Likes = x.Likes
+
             }));
             return models;
         }
