@@ -17,16 +17,23 @@
 
 
         <h2 class="text-center">@ViewBag.threadTitle</h2>
-        <ul>
-            <li class="list-group-item">
-                @Html.Partial("Posts", Model)
-                <h3>@Ajax.ActionLink("Reply", "AddPost", new { id = Model.First().ThreadId }, options, new { @class = "btn btn-default" })</h3>
-                @Ajax.ActionLink("Like", "AddLike", new  { id = Model.First().ThreadId }, new AjaxOptions {  HttpMethod = "Post", UpdateTargetId = "createPost", InsertionMode = InsertionMode.Replace}, new { @class = "btn btn-success glyphicon glyphicon-ok-circle" })
-            </li>
-        </ul>
+        <div id="posts">
+            <ul>
+
+                <li class="list-group-item">
+
+                    @Html.Partial("Posts", Model)
+
+                    <h3>@Ajax.ActionLink("Reply", "AddPost", new { id = Model.First().ThreadId }, options, new { @class = "btn btn-default" })</h3>
+                    @Ajax.ActionLink(" ", "AddLike", new { id = Model.First().ThreadId }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "postList", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-success glyphicon glyphicon-ok-circle" })
+                </li>
+
+            </ul>
+        </div>
 
 
-    </div>
+</div>
+
     <div class="col-md-3"></div>
 </div>
 <div class="row">

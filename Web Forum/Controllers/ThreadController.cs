@@ -50,6 +50,15 @@ namespace Web_Forum.Controllers
             return PartialView(post);
         }
 
+        //[HttpPost]
+        //public ActionResult AddLike(Guid id)
+        //{
+        //    repo.UpdateLikes(id);
+
+        //    var posts = new List<PostViewModel>();
+        //    posts.Transform(repo.GetPosts(id));
+        //    return PartialView("Index", posts);
+        //}
         [HttpPost]
         public ActionResult AddLike(Guid id)
         {
