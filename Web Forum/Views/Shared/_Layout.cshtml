@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - EC Web Forum</title>
+    <title>@ViewBag.Title - EC Web Forum </title>
+
     <link href="~/Content/HomeStyle.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
    
         
 </head>
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -18,31 +20,35 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+
                 </button>
+
                 @Html.ActionLink("EC Web Forum", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
             </div>
             <div class="navbar-collapse collapse" >
-                <ul class="nav navbar-nav">
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search">
+                    
+                </form>
+                
+                <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Forum", "Index", "Home")</li>
-                    @*<li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
                 
-                    <form class="navbar-form navbar-left">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                            <div class="input-group-btn">
-                               
-                            </div>
-                        </div>
-                    </form>
+                   
                 </div>
             
            
             </div>
             
                 </div>
+   
+   
        
     <div class="container body-content">
         @RenderBody()

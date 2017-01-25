@@ -1,4 +1,5 @@
-﻿@model List<Web_Forum.Models.IndexThreadViewModel>
+﻿<link href="~/Content/HomeStyle.css" rel="stylesheet" />
+@model List<Web_Forum.Models.IndexThreadViewModel>
 @{
     var options = new AjaxOptions
     {
@@ -11,49 +12,19 @@
 <div class="container center" id="threadList">
     @*<h1 class="text-center">@ViewBag.Title</h1>*@
 
-    <div class="jumbotron">
-
-
-        <h3 class="text-center">Join the EC Utbilding Community</h3>
-        <div class="text-center">
-            Join and share your knowledge through your school portal.
-            Make your connections and share your ideas.
-            Be welcome by once joined.
-        </div>
-
-    </div>
+   
     <!---->
-
+   
+        <div class="zumbatron">
+            <img  id="centerPhoto" class="img-responsive" src="~/Images/ec.png" />
+        </div>
+  
     <div>
-        <button Class = "btn btn-default" }>
-            @Ajax.ActionLink("New Thread", "AddThread", options)
-        </button>
+        @Ajax.ActionLink("New Thread", "AddThread",null, new { @Class = "btn btn-default" }, options)
         <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
         <h3>Topics</h3>
         <div id="createThread"></div>
-        <div>
-
-            @{
-                //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
-                foreach (var thread in Model.OrderByDescending(x => x.LastPosted))
-                {
-                        @*<h3>@subforum.Title</h3>*@
-
-                    @Html.ActionLink(
-                        thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted} Likes {thread.Likes}",
-                        "Index",
-                        "Thread",
-                        new
-                        {
-                            id = thread.Id,
-                            title = thread.Title
-                        },
-                        new {@class = "list-group-item"})
-
-                }
-            }
-
-        </div>
+        @Html.Partial("Threads", Model)
     </div>
 </div>
 
