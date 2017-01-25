@@ -123,16 +123,19 @@ namespace Web_Forum.data.Repositories
                 return thread?.Likes ?? 0;
             }
         }
-        public void UpdateLikes(Guid threadId)
+        public int UpdateLikes(Guid threadId)
         {
+            var likesAmount = 0;
             using (var ctx = new WebForumContext())
             {
                 var thread = ctx.Threads.Find(threadId);
                 thread.Likes += 1;
+                likesAmount = thread.Likes;
                 ctx.Entry(thread).State = EntityState.Modified;
 
                 ctx.SaveChanges();
             }
+            return likesAmount;
         }
 
         public List<IndexThreadDTO> SearchThreads(string search)
