@@ -38,7 +38,7 @@
                         @*<h3>@subforum.Title</h3>*@
                         
                             @Html.ActionLink(
-                           thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted} Likes {thread.Likes}",
+                           thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted} Likes {@thread.Likes}",
                            "Index",
                            "Thread",
                             new { id = thread.Id,
