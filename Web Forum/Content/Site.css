@@ -27,10 +27,41 @@ select,
 textarea {
     max-width: 280px;
 }
-#postThreads {
-    border-color: lightgray;
-    border.width: 5px;
-}
+
 .panel-heading {
 
+}
+#Rowrash {
+    border-color: lightgray;
+    border-radius: 2px;
+    border-width: 0.5px;
+    border-style: solid;
+    margin: 5px;
+    height: 40px;
+    color: black;
+}
+#Rowrash:hover {
+    background-color: lightblue;
+}
+.col-sm-4 {
+    border-color: lightgray;
+    border-right-style: solid;
+    border-width: 0.5px;
+    
+    margin-top: 8px;
+}
+.col-sm-1 {
+    border-color: lightgray;
+    border-right-style: solid;
+    border-width: 0.5px;
+    margin-top: 8px;
+}
+.col-sm-3 {
+    margin-top: 8px;
+    border-color: lightgray;
+    border-right-style: solid;
+    border-width: 0.5px;
+}
+.btn {
+    margin-top: 2px;
 }
