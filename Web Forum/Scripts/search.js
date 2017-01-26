@@ -1,0 +1,1 @@
+﻿$("#postThreads a").hide();
