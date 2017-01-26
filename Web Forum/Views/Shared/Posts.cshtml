@@ -12,8 +12,8 @@
                     <div class="panel-body">
                         <p>@post.Text</p>
                     </div>
-                    @Ajax.ActionLink(" ", "AddPostLike", new { Id = post.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "changingPostLikesValue", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-success glyphicon glyphicon-plus-sign" })
-                    <span id="changingPostLikesValue"><b>Likes:</b>  @post.Likes </span>
+                    @Ajax.ActionLink(" ", "AddPostLike", new { Id = post.Id }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = $"{post.Id}", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-success glyphicon glyphicon-plus-sign" })
+                    <span id="@post.Id"><b>Likes:</b>  @post.Likes </span>
 
                 </div>
             </li>
