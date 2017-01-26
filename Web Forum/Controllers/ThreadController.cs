@@ -69,5 +69,17 @@ namespace Web_Forum.Controllers
 
             return PartialView("_AddLike", likesAmount);
         }
+        [HttpPost]
+        public ActionResult DeletePost(Guid id)
+        {
+
+            repo.DeletePost(id);
+            var posts = new List<PostViewModel>();
+            posts.Transform(repo.GetPosts());
+
+            return PartialView("Index", posts);
+
+
+        }
     }
 }

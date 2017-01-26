@@ -4514,32 +4514,33 @@ textarea.input-group-sm > .input-group-btn > .btn {
   color: #333333;
 }
 
+/*ecWowowow*/
 .navbar-inverse {
-  background-color: #222222;
+  background-color: #0b3e6a;
   border-color: #080808;
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  color: #ffffff;
 }
 
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #ffffff;
+  color: #ffffe0;
   background-color: transparent;
 }
 
 .navbar-inverse .navbar-text {
-  color: #999999;
+  color: #ffffff;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #999999;
+  color: #ffffff;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #ffffff;
+  color: #ffffe0;
   background-color: transparent;
 }
 

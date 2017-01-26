@@ -8,6 +8,10 @@ namespace Web_Forum.data.Interfaces
     {
         void AddThread(ThreadDTO dto);
         void AddPost(PostDTO dto);
+        void EditThread(IndexThreadDTO thread);
+        void EditPost(PostDTO post);
+        void DeleteThread(Guid threadId);
+        void DeletePost(Guid postId);
         List<IndexThreadDTO> GetThreads();
         ThreadDTO GetThreadById(Guid id);
         List<PostDTO> GetPosts();
