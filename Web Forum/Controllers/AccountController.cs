@@ -53,8 +53,14 @@ namespace Web_Forum.Controllers
             return PartialView(user);
         }
 
+        [HttpGet]
         public ActionResult Logout()
         {
+            var ctx = Request.GetOwinContext();
+            var auth = ctx.Authentication;
+
+            auth.SignOut("UserCookie");
+
             return RedirectToAction("Index", "Home");
         }
     }

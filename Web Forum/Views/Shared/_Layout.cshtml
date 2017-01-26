@@ -7,6 +7,13 @@
         UpdateTargetId = "login",
         InsertionMode = InsertionMode.Replace
     };
+
+    var logoutOptions = new AjaxOptions
+    {
+        HttpMethod = "Get",
+        UpdateTargetId = "layoutIndex",
+        InsertionMode = InsertionMode.Replace
+    };
 }
 
 <html>
@@ -23,65 +30,66 @@
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+    <div id="layoutIndex">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
 
-                </button>
+                    </button>
 
-                @Html.ActionLink("EC Web Forum", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("EC Web Forum", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
-            </div>
-            <div class="navbar-collapse collapse">
-                @using (Html.BeginForm("Results", "Search", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
-                {
-                    <input type = "text" name="search" class="form-control" placeholder = "Search" />
-                    <input type = "submit" value = "Search" class="btn btn-default" />
-                }
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Forum", "Index", "Home")</li>
-                    @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            @Ajax.ActionLink("Log out", "Logout", "Account", new { @class = "glyphicon glyphicon-log-out" }, loginOptions)
-                        }
-                        else
-                        {
-                            <!--<a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>-->
-                            @Ajax.ActionLink("Login", "Login", "Account", new { @class = "glyphicon glyphicon-log-in" }, loginOptions)
-                        }
-                    </li>
-                </ul>
-                <div id="login"></div>
-
-            </div>
-            
-           
-            </div>
-            
                 </div>
-   
-   
-       
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - EC Web Forum</p>
-        </footer>
-    </div>
+                <div class="navbar-collapse collapse">
+                    @using (Html.BeginForm("Results", "Search", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+                    {
+                        <input type="text" name="search" class="form-control" placeholder="Search" />
+                        <input type="submit" value="Search" class="btn btn-default" />
+                    }
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/ThreadScript.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    @RenderSection("scripts", required: false)
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Forum", "Index", "Home")</li>
+                        @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @Ajax.ActionLink(" Log out", "Logout", "Account", null, logoutOptions, new { @class = "glyphicon glyphicon-log-out" })
+                            }
+                            else
+                            {
+                        <!--<a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>-->
+                                @Ajax.ActionLink(" Login", "Login", "Account", null, loginOptions, new { @class = "glyphicon glyphicon-log-in" })
+                            }
+                        </li>
+                    </ul>
+                    <div id="login"></div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - EC Web Forum</p>
+            </footer>
+        </div>
+    </div>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/Scripts/ThreadScript.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+@RenderSection("scripts", required: false)
 </body>
 </html>
