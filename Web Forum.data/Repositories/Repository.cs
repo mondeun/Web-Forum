@@ -81,6 +81,30 @@ namespace Web_Forum.data.Repositories
             }
         }
 
+        public void DeleteThread(Guid threadId)
+        {
+            using(var ctx = new WebForumContext())
+            {
+                var threadToDelete = ctx.Threads.Find(threadId);
+
+                ctx.Threads.Remove(threadToDelete);
+
+                ctx.SaveChanges();
+            }
+        }
+
+        public void DeletePost(Guid postId)
+        {
+            using(var ctx = new WebForumContext())
+            {
+                var postToDelete = ctx.Posts.Find(postId);
+
+                ctx.Posts.Remove(postToDelete);
+
+                ctx.SaveChanges();
+            }
+        }
+
         public List<PostDTO> GetPosts(Guid threadId)
         {
             var postsFromThreadId = new List<PostDTO>();
