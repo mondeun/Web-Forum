@@ -13,7 +13,8 @@
                 <div class="row panel-warning">
                     <div class="col-sm-2">
                         @thread.Title
-
+                        @Ajax.ActionLink("Delete", "DeleteThread", "Home", new {id = thread.Id}, new AjaxOptions(), new {@class ="btn btn-danger"})
+                        @Ajax.ActionLink("Edit", "EditThread", "Home", new { id = thread.Id }, new AjaxOptions(), new { @class = "btn btn-Success" })
                     </div>
                     <div class="col-sm-3">
                         @thread.NumberOfPosts
