@@ -26,26 +26,8 @@
         <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
         <h3>Topics</h3>
         <div id="createThread"></div>
-        <div>
-            
-                @{
-                    //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
-                    foreach (var thread in Model.OrderByDescending(x => x.LastPosted))
-                    {
-                        @*<h3>@subforum.Title</h3>*@
-                        
-                            @Html.ActionLink(
-                           thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted} Likes {thread.Likes}",
-                           "Index",
-                           "Thread",
-                            new { id = thread.Id,
-                                title = thread.Title },
-                            new { @class="list-group-item"})
-                       
-                    }
-                }
-            
-        </div>
+       @Html.Partial("Threads", Model)
+        
     </div>
 </div>
 
