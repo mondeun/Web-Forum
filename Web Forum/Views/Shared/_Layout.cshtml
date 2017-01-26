@@ -43,22 +43,21 @@
                     <input type = "submit" value = "Search" class="btn btn-default" />
                 }
 
-                    <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Forum", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-
-                        <li>
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                @Ajax.ActionLink("Login", "Logout", "Account", new { @class = "glyphicon glyphicon-log-out" }, loginOptions)
-                            }
-                            else
-                            {
-                                <!--<a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>-->
-                                @Ajax.ActionLink("Login", "Login", "Account", new { @class = "glyphicon glyphicon-log-in" }, loginOptions)
-                            }
-                        </li>
+                    <li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @Ajax.ActionLink("Log out", "Logout", "Account", new { @class = "glyphicon glyphicon-log-out" }, loginOptions)
+                        }
+                        else
+                        {
+                            <!--<a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>-->
+                            @Ajax.ActionLink("Login", "Login", "Account", new { @class = "glyphicon glyphicon-log-in" }, loginOptions)
+                        }
+                    </li>
                 </ul>
                 <div id="login"></div>
 
