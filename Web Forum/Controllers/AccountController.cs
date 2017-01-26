@@ -52,5 +52,10 @@ namespace Web_Forum.Controllers
 
             return PartialView(user);
         }
+
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
