@@ -81,5 +81,14 @@ namespace Web_Forum.Controllers
 
 
         }
+        [HttpPost]
+        public ActionResult EditPost(PostViewModel postToEdit)
+        {
+            repo.EditPost(postToEdit.Transform());
+
+            var posts = new List<PostViewModel>();
+            posts.Transform(repo.GetPosts());
+            return PartialView("Index", posts);
+        }
     }
 }
