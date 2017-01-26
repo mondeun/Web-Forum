@@ -16,6 +16,19 @@ namespace Web_Forum.Helpers
             };
             return dto;
         }
+        public static IndexThreadDTO Transform(this IndexThreadViewModel thread)
+        {
+            var IdexThreDTO = new IndexThreadDTO
+            {
+                Id = thread.Id,
+                Title = thread.Title,
+                DateCreated = thread.LastPosted,
+                LastPosted = thread.LastPosted,
+                NumberOfPosts = thread.NumberOfPosts,
+                Likes = thread.Likes
+            };
+            return IdexThreDTO;
+        }
 
         public static PostDTO Transform(this PostViewModel post)
         {

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿ using System.Collections.Generic;
 using System.Web.Mvc;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Repositories;
@@ -43,6 +43,15 @@ namespace Web_Forum.Controllers
             return PartialView(thread);
         }
         [HttpPost]
+        public ActionResult EditThread(IndexThreadViewModel threadToEdit)
+        {           
+            repo.EditThread(threadToEdit.Transform());
+
+            var threads = new List<IndexThreadViewModel>();
+            threads.Transform(repo.GetThreads());
+            return PartialView("Index", threads);
+        }
+        [HttpPost]
         public ActionResult DeleteThread(Guid id)
         {
             
@@ -53,6 +62,7 @@ namespace Web_Forum.Controllers
             
 
         }
+
         
         public ActionResult About()
         {
