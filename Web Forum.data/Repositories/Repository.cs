@@ -27,6 +27,19 @@ namespace Web_Forum.data.Repositories
             }
         }
 
+        public void EditPost(PostDTO post)
+        {
+            using(var ctx = new WebForumContext())
+            {
+                var postToEdit = ctx.Posts.Find(post.Id);
+                postToEdit.Text = post.Text;
+
+                ctx.Entry(postToEdit).State = EntityState.Modified;
+                ctx.SaveChanges();
+
+            }
+        }
+
         public void AddThread(ThreadDTO dto)
         {
             var newThread = new Thread
@@ -52,6 +65,19 @@ namespace Web_Forum.data.Repositories
             {
                 ctx.Threads.Add(newThread);
                 ctx.SaveChanges();
+            }
+        }
+
+        public void EditThread(IndexThreadDTO thread)
+        {
+            using(var ctx = new WebForumContext())
+            {
+                var threadToEdit = ctx.Threads.Find(thread.Id);
+
+                threadToEdit.Title = thread.Title;
+                ctx.Entry(threadToEdit).State = EntityState.Modified;
+                ctx.SaveChanges();
+                
             }
         }
 
