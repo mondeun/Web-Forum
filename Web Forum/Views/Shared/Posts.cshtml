@@ -4,7 +4,7 @@
     <ul>
         @foreach (var post in Model.OrderBy(x => x.Posted))
         {
-            <li class="list-group-item" id="postList">
+            <li class="list-group-item">
                 <div id="postThreads" class="panel panel-default">
                     <div class="panel-heading">
                         <h4>@post.Name - @post.Posted</h4>
