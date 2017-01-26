@@ -15,16 +15,13 @@
     <div class="col-lg-3 col-md-3"></div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <h2 class="text-center">@ViewBag.threadTitle</h2>
-        <ul>
-            <li class="list-group-item" id="postList">
 
-                @Html.Partial("Posts", Model)
+        @Html.Partial("Posts", Model)
 
-                <h3>@Ajax.ActionLink("Reply", "AddPost", new { id = Model.First().ThreadId }, options, new { @class = "btn btn-default" })</h3>
-                @Ajax.ActionLink(" ", "AddLike", new { id = Model.First().ThreadId }, new AjaxOptions { HttpMethod = "Post", UpdateTargetId = "changingLikesValue", InsertionMode = InsertionMode.Replace }, new { @class = "btn btn-success glyphicon glyphicon-plus-sign" })
-                <span id="changingLikesValue"><b>Likes:</b>  @ViewBag.Likes</span>
-            </li>
-        </ul>
+        <h3>@Ajax.ActionLink("Reply", "AddPost", new {id = Model.First().ThreadId}, options, new {@class = "btn btn-default"})</h3>
+        @Ajax.ActionLink(" ", "AddLike", new {id = Model.First().ThreadId}, new AjaxOptions {HttpMethod = "Post", UpdateTargetId = "changingLikesValue", InsertionMode = InsertionMode.Replace}, new {@class = "btn btn-success glyphicon glyphicon-plus-sign"})
+        <span id="changingLikesValue">
+            <b>Likes:</b> @ViewBag.Likes</span>
     </div>
 
     <div class="col-lg-3 col-md-3"></div>
