@@ -1,4 +1,14 @@
 ﻿<!DOCTYPE html>
+
+@{
+    var loginOptions = new AjaxOptions
+    {
+        HttpMethod = "Get",
+        UpdateTargetId = "login",
+        InsertionMode = InsertionMode.Replace
+    };
+}
+
 <html>
 <head>
     <meta charset="utf-8" />
@@ -26,22 +36,33 @@
                 @Html.ActionLink("EC Web Forum", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
             </div>
-            <div class="navbar-collapse collapse" >
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search">
-                    
-                </form>
-                
-                <ul class="nav navbar-nav navbar-right">
+            <div class="navbar-collapse collapse">
+                @using (Html.BeginForm("Results", "Search", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+                {
+                    <input type = "text" name="search" class="form-control" placeholder = "Search" />
+                    <input type = "submit" value = "Search" class="btn btn-default" />
+                }
+
+                    <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Forum", "Index", "Home")</li>
                     @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
 
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @Ajax.ActionLink("Login", "Logout", "Account", new { @class = "glyphicon glyphicon-log-out" }, loginOptions)
+                            }
+                            else
+                            {
+                                <!--<a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>-->
+                                @Ajax.ActionLink("Login", "Login", "Account", new { @class = "glyphicon glyphicon-log-in" }, loginOptions)
+                            }
+                        </li>
                 </ul>
-                
-                   
-                </div>
+                <div id="login"></div>
+
+            </div>
             
            
             </div>
