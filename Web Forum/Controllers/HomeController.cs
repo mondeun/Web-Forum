@@ -4,7 +4,7 @@ using Web_Forum.data.Interfaces;
 using Web_Forum.data.Repositories;
 using Web_Forum.Models;
 using Web_Forum.Helpers;
-
+using System;
 
 namespace Web_Forum.Controllers
 {
@@ -41,6 +41,17 @@ namespace Web_Forum.Controllers
             }
 
             return PartialView(thread);
+        }
+        [HttpPost]
+        public ActionResult DeleteThread(Guid id)
+        {
+            
+            repo.DeleteThread(id);
+            var threads = new List<IndexThreadViewModel>();
+            threads.Transform(repo.GetThreads());
+            return PartialView("Index",threads);
+            
+
         }
         
         public ActionResult About()
