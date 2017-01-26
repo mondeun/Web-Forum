@@ -30,8 +30,8 @@
                     <div class="col-sm-2">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            @Ajax.ActionLink("Delete", "DeleteThread", "Home", new {id = thread.Id}, new AjaxOptions(), new {@class = "btn btn-danger"})
-                            @Ajax.ActionLink("Edit", "EditThread", "Home", new {id = thread.Id}, new AjaxOptions(), new {@class = "btn btn-success"})
+                            @Ajax.ActionLink("Delete", "DeleteThread", "Home", new {id = thread.Id}, new AjaxOptions {  HttpMethod= "Post", UpdateTargetId= "threadsInIndex", InsertionMode = InsertionMode.Replace }, new {@class = "btn btn-danger"})
+                            @Ajax.ActionLink("Edit", "EditThread", "Home", new {id = thread.Id}, new AjaxOptions { HttpMethod = "Post" }, new {@class = "btn btn-success"})
                         }
                     </div>
                     @*@Html.ActionLink(
