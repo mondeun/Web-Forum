@@ -4,7 +4,9 @@
     {
         HttpMethod = "Post",
         UpdateTargetId = "threadList",
-        InsertionMode = InsertionMode.Replace
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "show",
+        OnSuccess = "hide"
     };
 }
 

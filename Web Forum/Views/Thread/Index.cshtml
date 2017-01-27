@@ -8,7 +8,9 @@
     {
         HttpMethod = "Get",
         UpdateTargetId = "createPost",
-        InsertionMode = InsertionMode.Replace
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "show",
+        OnSuccess = "hide"
     };
 }
 <div id="postList">
@@ -31,6 +33,7 @@
         <div class="col-md-4 col-sm-4 col-xs-4"></div>
         <div class="col-md-4 col-sm-4 col-xs-4">
             <div style="margin: 0 auto 0 auto" id="createPost"></div>
+            <div class="loader" style="display: none"></div>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-4">
 
