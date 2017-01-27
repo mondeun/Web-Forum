@@ -162,6 +162,24 @@ namespace Web_Forum.data.Repositories
                 return dtos;
             }
         }
+        public PostDTO GetPostByID(Guid id)
+        {
+            var post = new Post();
+            using (var ctx = new WebForumContext())
+            {
+                post  = ctx.Posts.Find(id);
+                var postDTO = new PostDTO
+                {
+                    ThreadId = post.ThreadId,
+                    Name = post.Name,
+                    Text = post.Text,
+                    Posted = post.Posted,
+                    Likes = post.Likes
+
+                };
+                return postDTO;
+            }
+        }
 
         public List<PostDTO> GetPosts()
         {
