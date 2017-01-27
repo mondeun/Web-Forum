@@ -127,13 +127,13 @@ namespace Web_Forum.data.Repositories
             return postsFromThreadId;
         }
 
-        public ThreadDTO GetThreadById(Guid id)
+        public IndexThreadDTO GetThreadById(Guid id)
         {
             using (var ctx = new WebForumContext())
             {
                 var thread = ctx.Threads.Include("Posts").FirstOrDefault(x => x.Id == id);
 
-                var dto = new ThreadDTO
+                var dto = new IndexThreadDTO
                 {
                     Title = thread.Title,
                     // TODO Fill in rest

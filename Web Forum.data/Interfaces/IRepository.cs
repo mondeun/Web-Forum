@@ -14,7 +14,7 @@ namespace Web_Forum.data.Interfaces
         void DeleteThread(Guid threadId);
         void DeletePost(Guid postId);
         List<IndexThreadDTO> GetThreads();
-        ThreadDTO GetThreadById(Guid id);
+        IndexThreadDTO GetThreadById(Guid id);
         List<PostDTO> GetPosts();
         List<PostDTO> GetPosts(Guid id);
         int GetLikes(Guid id);
