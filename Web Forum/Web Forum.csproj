@@ -210,6 +210,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AboutStyle.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\contactStyle.css" />
@@ -220,6 +221,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\ec.png" />
+    <Content Include="Images\utb.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -266,9 +268,9 @@
     <Content Include="Views\Thread\Index.cshtml" />
     <Content Include="Views\Home\AddThread.cshtml" />
     <Content Include="Views\Thread\AddPost.cshtml" />
-    <Content Include="Views\Shared\Posts.cshtml" />
+    <Content Include="Views\Shared\_Posts.cshtml" />
     <Content Include="Views\Search\Results.cshtml" />
-    <Content Include="Views\Shared\Threads.cshtml" />
+    <Content Include="Views\Shared\_Threads.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Thread\_AddLike.cshtml" />
   </ItemGroup>
