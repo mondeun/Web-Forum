@@ -1,13 +1,11 @@
-﻿<link href="~/Content/HomeStyle.css" rel="stylesheet" />
-@model List<Web_Forum.Models.IndexThreadViewModel>
+﻿@model List<Web_Forum.Models.IndexThreadViewModel>
+
 @{
     var options = new AjaxOptions
     {
         HttpMethod = "Get",
         InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "createThread",
-        OnBegin = "show",
-        OnSuccess = "hide"
+        UpdateTargetId = "createThread"
     };
 }
 
@@ -24,7 +22,7 @@
 
         <div>
             @*<button Class="btn btn-default" }>*@
-                @Ajax.ActionLink("New Thread", "AddThread", null ,options, new { @class= "btn btn-default" })
+                @Ajax.ActionLink("New Thread", "AddThread", null, options, new { @class= "btn btn-default" })
             @*</button>*@
             <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
             <h3>Topics</h3>

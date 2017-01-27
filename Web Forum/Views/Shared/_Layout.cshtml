@@ -56,7 +56,7 @@
                         <li>
                             @if (User.Identity.IsAuthenticated)
                             {
-                                @Ajax.ActionLink(" Log out", "Logout", "Account", null, logoutOptions, new {@class = "glyphicon glyphicon-log-out"})
+                                @Ajax.ActionLink(" Log out", "Logout", "Account", null, logoutOptions)
                             }
                             else
                             {
