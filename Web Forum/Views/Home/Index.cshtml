@@ -22,12 +22,12 @@
 
         <div>
             @*<button Class="btn btn-default" }>*@
-                @Ajax.ActionLink("New Thread", "AddThread",null ,options, new { @class= "btn btn-primary" })
+                @Ajax.ActionLink("New Thread", "_AddThread", null ,options, new { @class= "btn btn-default" })
             @*</button>*@
             <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
             <h3>Topics</h3>
             <div id="createThread"></div>
-            @Html.Partial("Threads", Model)
+            @Html.Partial("_Threads", Model)
         </div>
     </div>
 </div>

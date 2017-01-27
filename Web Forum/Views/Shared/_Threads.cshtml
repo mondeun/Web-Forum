@@ -20,7 +20,7 @@
                     <div class="col-sm-3">
                         @thread.LastPosted
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-1">
                         
                         @thread.Likes
                     </div>
@@ -28,12 +28,13 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             @*@Ajax.ActionLink("Delete", "DeleteThread", "Home", new {id = thread.Id}, new AjaxOptions {  HttpMethod= "Post", UpdateTargetId= "threadsInIndex", InsertionMode = InsertionMode.Replace }, new {@class = "btn btn-danger"})*@
-                        @Html.ActionLink("Delete", "DeleteThread", "Home", new { id = thread.Id }, new { @class = "btn btn-danger" });
+                            @Html.ActionLink("Delete", "DeleteThread", "Home", new { id = thread.Id }, new { @class = "btn btn-danger" });
 
 
-                        @Ajax.ActionLink("Edit", "EditThread", "Home", new {id = thread.Id}, new AjaxOptions { HttpMethod = "Post" }, new {@class = "btn btn-success"})
+                            @Ajax.ActionLink("Edit", "EditThread", "Home", new {id = thread.Id}, new AjaxOptions { HttpMethod = "Post" }, new {@class = "btn btn-success"})
                         }
                     </div>
+                  
                     @*@Html.ActionLink(
                         thread.Title + $" Posts {@thread.NumberOfPosts} Created  {@thread.DateCreated} Last Posted {@thread.LastPosted} Likes {thread.Likes}",
                         "Index",
