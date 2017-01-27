@@ -28,7 +28,6 @@
    
         
 </head>
-
 <body>
     <div id="layoutIndex">
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -44,15 +43,12 @@
                 <div class="navbar-collapse collapse">
                     @using (Html.BeginForm("Results", "Search", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
                     {
-                       <input type="text" name="search" class="form-control" placeholder="Search" />
-                       
-                            <span class="glyphicon glyphicon-search"></span>
-                        
+                        <div class="form-group">
+                            <input type="text" name="search" class="form-control" placeholder="Search" />
+                        </div>
                             @*<input id="btnsearch" type="submit" value="Search" class="glyphicon glyphicon-search" />*@
-
                     }
                     <ul class="nav navbar-nav navbar-right">
-
                         <li>@Html.ActionLink("Forum", "Index", "Home")</li>
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
@@ -69,16 +65,22 @@
                         </li>
                     </ul>
                     <div id="login"></div>
-
                 </div>
-
-
             </div>
-
         </div>
+        <div>
+            <ul class="pagination hidden-xs">
+                <li class="previous pull-left disabled"></li>
+                <li class="page-active"></li>
+                <li></li>
+                <li></li>
+                <li class="next pull-right"></li>
 
-
-
+            </ul>
+            <ul>
+                
+            </ul>
+        </div>
         <div class="container body-content">
             @RenderBody()
             <hr />

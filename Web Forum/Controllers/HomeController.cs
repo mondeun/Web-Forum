@@ -51,14 +51,14 @@ namespace Web_Forum.Controllers
             threads.Transform(repo.GetThreads());
             return PartialView("Index", threads);
         }
-        [HttpPost]
+       
         public ActionResult DeleteThread(Guid id)
         {
             
             repo.DeleteThread(id);
             var threads = new List<IndexThreadViewModel>();
             threads.Transform(repo.GetThreads());
-            return PartialView("Index",threads);
+            return View("Index",threads);
             
 
         }

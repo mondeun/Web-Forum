@@ -15,18 +15,18 @@
 
     <!---->
     <div id="threadsInIndex">
+
         <div class="zumbatron">
             <img id="centerPhoto" class="img-responsive" src="~/Images/ec.png" />
         </div>
 
         <div>
-            <button Class="btn btn-default" }>
-                @Ajax.ActionLink("New Thread", "AddThread", options)
-            </button>
+            @*<button Class="btn btn-default" }>*@
+                @Ajax.ActionLink("New Thread", "AddThread",null ,options, new { @class= "btn btn-default" })
+            @*</button>*@
             <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
             <h3>Topics</h3>
             <div id="createThread"></div>
-
             @Html.Partial("Threads", Model)
         </div>
     </div>
