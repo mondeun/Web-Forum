@@ -14,7 +14,7 @@
                     <div class="col-sm-4">
                         @thread.Title
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm-1">  
                         @thread.NumberOfPosts
                     </div>
                     <div class="col-sm-3">
@@ -27,8 +27,11 @@
                     <div class="col-sm-2">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            @Ajax.ActionLink("Delete", "DeleteThread", "Home", new {id = thread.Id}, new AjaxOptions {  HttpMethod= "Post", UpdateTargetId= "threadsInIndex", InsertionMode = InsertionMode.Replace }, new {@class = "btn btn-danger"})
-                            @Ajax.ActionLink("Edit", "EditThread", "Home", new {id = thread.Id}, new AjaxOptions { HttpMethod = "Post" }, new {@class = "btn btn-success"})
+                            @*@Ajax.ActionLink("Delete", "DeleteThread", "Home", new {id = thread.Id}, new AjaxOptions {  HttpMethod= "Post", UpdateTargetId= "threadsInIndex", InsertionMode = InsertionMode.Replace }, new {@class = "btn btn-danger"})*@
+                        @Html.ActionLink("Delete", "DeleteThread", "Home", new { id = thread.Id }, new { @class = "btn btn-danger" });
+
+
+                        @Ajax.ActionLink("Edit", "EditThread", "Home", new {id = thread.Id}, new AjaxOptions { HttpMethod = "Post" }, new {@class = "btn btn-success"})
                         }
                     </div>
                     @*@Html.ActionLink(

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using Web_Forum.data.DTO;
 using Web_Forum.data.Interfaces;
@@ -85,10 +86,11 @@ namespace Web_Forum.data.Repositories
         {
             using(var ctx = new WebForumContext())
             {
+                Trace.WriteLine($"delete Thread ID={threadId}");
                 var threadToDelete = ctx.Threads.Find(threadId);
 
                 ctx.Threads.Remove(threadToDelete);
-
+                
                 ctx.SaveChanges();
             }
         }
