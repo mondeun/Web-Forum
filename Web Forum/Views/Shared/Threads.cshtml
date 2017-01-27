@@ -31,7 +31,7 @@
                             @Html.ActionLink("Delete", "DeleteThread", "Home", new { id = thread.Id }, new { @class = "btn btn-danger" });
 
 
-                            @Ajax.ActionLink("Edit", "EditThread", "Home", new { threadToEdit = thread }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = $"{thread.Id}", InsertionMode = InsertionMode.Replace}, new {@class = "btn btn-success"})
+                            @Ajax.ActionLink("Edit", "EditThread", "Home", new { id = thread.Id }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = $"{thread.Id}", InsertionMode = InsertionMode.Replace}, new {@class = "btn btn-success"})
                         }
                     </div>
                   

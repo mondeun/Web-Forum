@@ -30,6 +30,16 @@ namespace Web_Forum.Helpers
             return IdexThreDTO;
         }
 
+        public static IndexThreadViewModel IndexThreadDtoToViewModel(IndexThreadDTO thread) => new IndexThreadViewModel
+        {
+            Id = thread.Id,
+            Title = thread.Title,
+            DateCreated = thread.LastPosted,
+            LastPosted = thread.LastPosted,
+            NumberOfPosts = thread.NumberOfPosts,
+            Likes = thread.Likes
+        };
+
         public static PostDTO Transform(this PostViewModel post)
         {
             var dto = new PostDTO

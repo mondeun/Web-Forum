@@ -57,7 +57,7 @@ namespace Web_Forum.Controllers
 
             var posts = new List<PostViewModel>();
             posts.Transform(repo.GetPosts(id));
-            return PartialView("_AddLike", likesAmount);
+            return PartialView("AddLike", likesAmount);
         }
         [HttpPost]
         public ActionResult AddPostLike(Guid id)
@@ -67,7 +67,7 @@ namespace Web_Forum.Controllers
             var posts = new List<PostViewModel>();
             posts.Transform(repo.GetPosts(id));
 
-            return PartialView("_AddLike", likesAmount);
+            return PartialView("AddLike", likesAmount);
         }
         [HttpPost]
         public ActionResult DeletePost(Guid id)
