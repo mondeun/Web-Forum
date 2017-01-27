@@ -65,4 +65,26 @@ textarea {
 .btn {
     margin-top: 2px;
 }
+@media only screen and (max-width: 480px) {
+    #Rowrash {
+        width: 100%;    
+    }
+    #Rowrash:hover {
+    background-color: pink;
+        width: 700%;
+}
+.col-sm-3 {
+    
+    visibility: hidden;
+ 
+}
+.col-sm-1 {
+    visibility:collapse;
+  
+    
+}
+.col-sm-4 {
+    visibility:visible;
 
+}
+}
