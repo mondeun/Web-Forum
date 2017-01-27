@@ -5,7 +5,9 @@
     {
         HttpMethod = "Get",
         InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "createThread"
+        UpdateTargetId = "createThread",
+        OnBegin = "show",
+        OnSuccess = "hide"
     };
 }
 
@@ -27,6 +29,7 @@
             <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
             <h3>Topics</h3>
             <div id="createThread"></div>
+            <div class="loader"></div>
             @Html.Partial("_Threads", Model)
         </div>
     </div>
