@@ -1,7 +1,6 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -10,8 +9,8 @@
     padding-right: 15px;
     margin: 0 auto 0 auto;
 }
-.center {
 
+.center {
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -29,8 +28,8 @@ textarea {
 }
 
 .panel-heading {
-
 }
+
 #Rowrash {
     border-color: lightgray;
     border-radius: 2px;
@@ -40,28 +39,32 @@ textarea {
     height: 40px;
     color: black;
 }
-#Rowrash:hover {
-    background-color: lightblue;
-}
+
+    #Rowrash:hover {
+        background-color: lightblue;
+    }
+
 .col-sm-4 {
     border-color: lightgray;
     border-right-style: solid;
     border-width: 0.5px;
-    
     margin-top: 8px;
 }
+
 .col-sm-1 {
     border-color: lightgray;
     border-right-style: solid;
     border-width: 0.5px;
     margin-top: 8px;
 }
+
 .col-sm-3 {
     margin-top: 8px;
     border-color: lightgray;
     border-right-style: solid;
     border-width: 0.5px;
 }
+
 .btn {
     margin-top: 2px;
 }
@@ -70,29 +73,29 @@ textarea {
 @media only screen and (min-width: 320px) and (max-width: 680px) {
     #Rowrash {
         width: auto;
-         height: auto;
+        height: auto;
     }
 
-        /*#Rowrash:hover {
+    /*#Rowrash:hover {
             
             width: auto;
              height: auto;
         }*/
 
     .col-sm-3 {
-         width: auto;
-         height: auto;
+        width: auto;
+        height: auto;
         visibility: visible;
     }
 
     .col-sm-1 {
-         width: auto;
-         height: auto;
+        width: auto;
+        height: auto;
         visibility: visible;
     }
 
     .col-sm-4 {
-         width: auto;
+        width: auto;
         height: auto;
         visibility: visible;
     }
@@ -107,40 +110,36 @@ textarea {
         background-color: transparent !important;
     }
 }
-@media only screen and (min-device-width: 720px) 
-and (max-device-width: 1024px){
-   
-            /*#Rowrash:hover {
+
+@media only screen and (min-device-width: 720px) and (max-device-width: 1024px) {
+
+    /*#Rowrash:hover {
             background-color: lightblue;
             width: 100%;
         }*/
 
     .col-sm-3 {
         visibility: visible;
-         width: auto;
-        height: auto;
+       
     }
 
     .col-sm-1 {
         visibility: visible;
-         width: auto;
-        height: auto;
-        
+       
     }
 
     .col-sm-4 {
         visibility: visible;
-         width: auto;
-        height: auto;
+        
     }
 
-        .panel-footer {
-      position: absolute;
-   bottom: 0; 
-   margin: 0 auto !important;
-   text-align: center !important;
-            width: auto;
-             height: auto;
- background-color: transparent !important; 
-}
+    .panel-footer {
+        position: absolute;
+        bottom: 0;
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: auto;
+        height: auto;
+        background-color: transparent !important;
+    }
 }
