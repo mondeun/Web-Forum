@@ -273,6 +273,7 @@
     <Content Include="Views\Shared\_Threads.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Thread\_AddLike.cshtml" />
+    <Content Include="Views\Home\_EditThread.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
