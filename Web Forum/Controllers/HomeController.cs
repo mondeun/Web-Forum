@@ -42,6 +42,15 @@ namespace Web_Forum.Controllers
 
             return PartialView(thread);
         }
+
+        [HttpGet]
+        public ActionResult EditThread(Guid id)
+        {
+            var thread = Helper.IndexThreadDtoToViewModel(repo.GetThreadById(id));
+
+            return PartialView(thread);
+        }
+
         [HttpPost]
         public ActionResult EditThread(IndexThreadViewModel threadToEdit)
         {           
