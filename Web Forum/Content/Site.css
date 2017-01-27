@@ -65,12 +65,35 @@ textarea {
 .btn {
     margin-top: 2px;
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (min-width: 480px) {
     #Rowrash {
         width: 100%;    
     }
     #Rowrash:hover {
     background-color: pink;
+        width: 700%;
+}
+.col-sm-3 {
+    
+    visibility: hidden;
+ 
+}
+.col-sm-1 {
+
+    visibility: hidden;
+    
+}
+.col-sm-4 {
+    visibility:visible;
+
+}
+}
+@media only screen and (max-width: 780px) {
+        #Rowrash {
+        width: 100%;    
+    }
+    #Rowrash:hover {
+    background-color: black;
         width: 700%;
 }
 .col-sm-3 {

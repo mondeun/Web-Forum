@@ -267,7 +267,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Thread\Index.cshtml" />
     <Content Include="Views\Home\_AddThread.cshtml" />
-    <Content Include="Views\Thread\AddPost.cshtml" />
+    <Content Include="Views\Thread\_AddPost.cshtml" />
     <Content Include="Views\Shared\_Posts.cshtml" />
     <Content Include="Views\Search\Results.cshtml" />
     <Content Include="Views\Shared\_Threads.cshtml" />

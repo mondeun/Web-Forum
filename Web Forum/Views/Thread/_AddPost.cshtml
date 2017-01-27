@@ -5,7 +5,9 @@
     {
         HttpMethod = "Post",
         UpdateTargetId = "postList",
-        InsertionMode = InsertionMode.Replace
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "show",
+        OnSuccess = "hide"
     };
 }
 
