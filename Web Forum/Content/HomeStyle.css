@@ -16,3 +16,12 @@
 #centerPhoto {
     margin: 0 auto 0 auto;
 }
+
+.panel-footer {
+    position: absolute;
+   bottom: 0; 
+   margin: 0 auto !important;
+   text-align: center !important;
+    width: 100% !important;
+ background-color: transparent !important; 
+}

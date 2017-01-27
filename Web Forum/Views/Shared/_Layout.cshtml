@@ -50,7 +50,7 @@
                             @*<input id="btnsearch" type="submit" value="Search" class="glyphicon glyphicon-search" />*@
                     }
                     <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink("Forum", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
                         @*<li>@Html.ActionLink("About", "About", "Home")</li>*@
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         <li>
@@ -71,19 +71,19 @@
 
 
             </div>
-
+           
         </div>
-
+        </div>
 
 
         <div class="container body-content">
             @RenderBody()
             <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - EC Web Forum</p>
-            </footer>
-        </div>
-    </div>
+           
+                <div class="panel-footer">&copy; @DateTime.Now.Year - EC Web Forum</div>
+                
+            </div>
+  
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 <script src="~/Scripts/ThreadScript.js"></script>
