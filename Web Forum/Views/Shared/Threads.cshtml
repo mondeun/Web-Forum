@@ -1,37 +1,43 @@
 ﻿@model List<Web_Forum.Models.IndexThreadViewModel>
 <link href="~/Content/Site.css" rel="stylesheet" />
 <div>
-
+  
+    </div>
     @{
         //To discuss with the boss if a PartialView is a better and cleaner solution/ We could call for each Partial with
         foreach (var thread in Model.OrderByDescending(x => x.LastPosted))
         {
             @*<h3>@subforum.Title</h3>*@
-
+            
             <a href="@Url.Action("Index", "Thread", new {id = thread.Id, title = thread.Title})">
 
                 <div class="row" id="Rowrash">
                     <div class="col-sm-4">
                         @thread.Title
                     </div>
-                    <div class="col-sm-1">  
+                    <div class="col-sm-2">  
                         @thread.NumberOfPosts
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         @thread.LastPosted
                     </div>
-                    <div class="col-sm-1">
-                        
-                        @thread.Likes
-                    </div>
                     <div class="col-sm-2">
+                        
+                        <P>@thread.Likes</P>
+                    </div>
+                    <div class="col-sm-1">
                         @if (User.Identity.IsAuthenticated)
                         {
                             @*@Ajax.ActionLink("Delete", "DeleteThread", "Home", new {id = thread.Id}, new AjaxOptions {  HttpMethod= "Post", UpdateTargetId= "threadsInIndex", InsertionMode = InsertionMode.Replace }, new {@class = "btn btn-danger"})*@
-                            @Html.ActionLink("Delete", "DeleteThread", "Home", new { id = thread.Id }, new { @class = "btn btn-danger" });
-
-
-                            @Ajax.ActionLink("Edit", "EditThread", "Home", new { id = thread.Id }, new AjaxOptions { HttpMethod = "Get", UpdateTargetId = $"{thread.Id}", InsertionMode = InsertionMode.Replace}, new {@class = "btn btn-success"})
+                            @Html.ActionLink("Delete", "DeleteThread", "Home", new { id = thread.Id }, new { @class = "btn btn-danger"});
+                            
+                           
+                        }
+                    </div>
+                    <div class="col-sm-1">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @Ajax.ActionLink("Edit", "EditThread", "Home", new {id = thread.Id}, new AjaxOptions {HttpMethod = "Get", UpdateTargetId = $"{thread.Id}", InsertionMode = InsertionMode.Replace}, new {@class = "btn btn-success"})
                         }
                     </div>
                   
