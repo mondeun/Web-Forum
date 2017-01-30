@@ -5,10 +5,14 @@
     {
         HttpMethod = "Get",
         InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "createThread"
+        UpdateTargetId = "createThread",
+        OnBegin = "show",        
+        OnSuccess = "hide",
+        LoadingElementId = "loader-wrapper"
+         
     };
 }
-
+<div class="loader" style="display: none"></div>
 <div class="container center" id="threadList">
     @*<h1 class="text-center">@ViewBag.Title</h1>*@
 
@@ -22,14 +26,17 @@
 
         <div>
             @*<button Class="btn btn-default" }>*@
-                @Ajax.ActionLink("New Thread", "AddThread", null, options, new { @class= "btn btn-primary" })
+            @Ajax.ActionLink("New Thread", "AddThread", null, options, new { @class = "btn btn-primary" })
             @*</button>*@
             <!--<button id="newTopic" type="button" class="btn-primary">New Topic</button>-->
             <h3>Topics</h3>
             <div id="createThread"></div>
-            <div class="loader" style="display: none"></div>
-            @Html.Partial("Threads", Model)
+            <div id="loader-wrapper" style="display:none">
+                <div id="loader"></div>
+            </div>
         </div>
+        @Html.Partial("Threads", Model)
+
     </div>
 </div>
 
