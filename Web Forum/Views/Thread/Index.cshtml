@@ -11,7 +11,7 @@
         InsertionMode = InsertionMode.Replace,
         OnBegin = "show",
         OnSuccess = "hide",
-        LoadingElementDuration = 3000,
+        
         LoadingElementId = "loader-wrapper"
 
     };
@@ -43,7 +43,10 @@
         <div class="col-md-4 col-sm-4 col-xs-4"></div>
         <div class="col-md-4 col-sm-4 col-xs-4">
             <div style="margin: 0 auto 0 auto" id="createPost"></div>
-            <div class="loader" style="display: none"></div>
+            
+            <div id="loader-wrapper" style="display:none">
+                <div id="loader"></div>
+            </div>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-4">
 
