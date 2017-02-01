@@ -26,7 +26,7 @@ textarea {
 
 
 
-#Rowrash {
+.Rowrash {
     border-color: lightgray;
     border-radius: 2px;
     border-width: 0.5px;
@@ -36,7 +36,7 @@ textarea {
     color: black;
 }
 
-    #Rowrash:hover {
+    .Rowrash:hover {
         background-color: lightblue;
     }
 
@@ -82,11 +82,18 @@ textarea {
     margin-top: -5px;
     float: right;
 }
-
+   .panel-footer {
+        position: fixed;
+        
+        margin: 0 auto !important;
+        text-align: center !important;
+        
+        background-color: transparent !important;
+    }
 
 
 @media only screen and (min-width: 320px) and (max-width: 680px) {
-    #Rowrash {
+    .Rowrash {
         width: auto;
         height: auto;
     }
@@ -136,7 +143,7 @@ textarea {
 }
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
 
-        #Rowrash {
+        .Rowrash {
         width: auto;
         height: auto;
     }
@@ -195,7 +202,7 @@ textarea {
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1001px) {
 
-        #Rowrash {
+        .Rowrash {
         width: auto;
         height: auto;
     }
@@ -299,7 +306,7 @@ textarea {
 }
 
 @media only screen and (min-device-width: 613px) and (max-device-width: 775px) {
-            #Rowrash {
+            .Rowrash {
         width: auto;
         height: auto;
     }

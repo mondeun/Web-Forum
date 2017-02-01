@@ -41,7 +41,6 @@ namespace Web_Forum.Controllers
             if (ModelState.IsValid)
             {
                 repo.AddPost(post.Transform());
-
                 var posts = new List<PostViewModel>();
                 posts.Transform(repo.GetPosts(post.ThreadId));
                 ViewBag.Likes = repo.GetLikes(post.ThreadId);
