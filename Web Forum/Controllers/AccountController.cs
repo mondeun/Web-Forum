@@ -29,7 +29,7 @@ namespace Web_Forum.Controllers
         public ActionResult Login(UserViewModel user)
         {
             if (!ModelState.IsValid)
-                return PartialView(user);
+                return View(user);
 
             var dbUser = UserHelper.GetUserViewModelFromDto(repo.GetUserByCredentials(user.Email, user.Password));
 
@@ -50,7 +50,7 @@ namespace Web_Forum.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return PartialView(user);
+            return View(user);
         }
 
         [HttpGet]
