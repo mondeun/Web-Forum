@@ -10,9 +10,6 @@
     margin: 0 auto 0 auto;
 }
 
-.center {
-}
-
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -27,8 +24,7 @@ textarea {
     max-width: 280px;
 }
 
-.panel-heading {
-}
+
 
 #Rowrash {
     border-color: lightgray;
@@ -127,15 +123,7 @@ textarea {
         height: auto;
    
 }
-    .panel-footer {
-        position: absolute;
-        bottom: 0;
-        margin: 0 auto !important;
-        text-align: center !important;
-        width: auto;
-        height: auto;
-        background-color: transparent !important;
-    }
+ 
     .btn-danger {
     margin: auto;
     margin-top: -5px;
@@ -293,7 +281,7 @@ textarea {
    
 }
 
-    .panel-footer {
+    /*.panel-footer {
         position: absolute;
         bottom: 0;
         margin: 0 auto !important;
@@ -301,7 +289,7 @@ textarea {
         width: auto;
         height: auto;
         background-color: transparent !important;
-    }
+    }*/
     .btn-danger {
     width: auto;
         height: auto;
@@ -309,3 +297,62 @@ textarea {
 }
 
 }
+
+@media only screen and (min-device-width: 613px) and (max-device-width: 775px) {
+            #Rowrash {
+        width: auto;
+        height: auto;
+    }
+
+    /*#Rowrash:hover {
+            
+            width: auto;
+             height: auto;
+        }*/
+
+    .col-sm-3 {
+        width: auto;
+        height: auto;
+        visibility: hidden;
+    }
+
+    .col-sm-1 {
+        width: auto;
+        height: auto;
+        visibility: visible;
+    }
+
+    .col-sm-4 {
+        width: auto;
+        height: auto;
+        visibility: visible;
+    }
+    .col-sm-2 {
+    border-color: lightgray;
+    border-right-style: solid;
+    border-width: 0.5px;
+    margin-top: 8px;
+     width: auto;
+        height: auto;
+   
+}
+    /*.panel-footer {
+        position: absolute;
+        bottom: 0;
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: auto;
+        height: auto;
+        background-color: transparent !important;
+    }*/
+    .btn-danger {
+    margin: auto;
+    margin-top: -5px;
+        margin-left: 2px;
+}
+.btn-success {
+    margin: auto;
+    margin-top: -5px;
+}
+}
+w:613 - 691  h 775
