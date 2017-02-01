@@ -26,7 +26,7 @@ textarea {
 
 
 
-.Rowrash {
+.row {
     border-color: lightgray;
     border-radius: 2px;
     border-width: 0.5px;
@@ -36,7 +36,7 @@ textarea {
     color: black;
 }
 
-    .Rowrash:hover {
+    .row:hover {
         background-color: lightblue;
     }
 
@@ -93,7 +93,7 @@ textarea {
 
 
 @media only screen and (min-width: 320px) and (max-width: 680px) {
-    .Rowrash {
+    .row {
         width: auto;
         height: auto;
     }
@@ -143,7 +143,7 @@ textarea {
 }
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
 
-        .Rowrash {
+        .row {
         width: auto;
         height: auto;
     }
@@ -202,7 +202,7 @@ textarea {
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1001px) {
 
-        .Rowrash {
+        .row {
         width: auto;
         height: auto;
     }
@@ -306,7 +306,7 @@ textarea {
 }
 
 @media only screen and (min-device-width: 613px) and (max-device-width: 775px) {
-            .Rowrash {
+            .row {
         width: auto;
         height: auto;
     }
