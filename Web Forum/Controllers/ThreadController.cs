@@ -44,6 +44,7 @@ namespace Web_Forum.Controllers
 
                 var posts = new List<PostViewModel>();
                 posts.Transform(repo.GetPosts(post.ThreadId));
+                ViewBag.Likes = repo.GetLikes(post.ThreadId);
                 return PartialView("Index", posts);
             }
 

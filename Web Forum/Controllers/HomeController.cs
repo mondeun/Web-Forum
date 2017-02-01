@@ -39,8 +39,9 @@ namespace Web_Forum.Controllers
                 threads.Transform(repo.GetThreads());
                 return PartialView("Index", threads);
             }
+            
 
-            return PartialView(thread);
+            return PartialView("AddThread",thread);
         }
 
         [HttpGet]
@@ -67,7 +68,8 @@ namespace Web_Forum.Controllers
             repo.DeleteThread(id);
             var threads = new List<IndexThreadViewModel>();
             threads.Transform(repo.GetThreads());
-            return View("Index",threads);
+            return RedirectToActionPermanent("Index");
+            //return View("Index",threads);
             
 
         }

@@ -5,14 +5,20 @@
     {
         HttpMethod = "Get",
         UpdateTargetId = "login",
-        InsertionMode = InsertionMode.Replace
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "show",
+        OnSuccess = "hide",
+        LoadingElementId = "loader-wrapper"
     };
 
     var logoutOptions = new AjaxOptions
     {
         HttpMethod = "Get",
         UpdateTargetId = "layoutIndex",
-        InsertionMode = InsertionMode.Replace
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "show",
+        OnSuccess = "hide",
+        LoadingElementId = "loader-wrapper"
     };
 }
 
