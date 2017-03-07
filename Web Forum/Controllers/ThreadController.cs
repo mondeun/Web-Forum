@@ -10,7 +10,7 @@ namespace Web_Forum.Controllers
 {
     public class ThreadController : Controller
     {
-        private IRepository repo = new Repository();
+        private readonly IRepository _repo = new Repository();
         // GET: Thread
         public ActionResult Index(Guid id)
         {
@@ -20,9 +20,9 @@ namespace Web_Forum.Controllers
             //threads.Transform(repo.GetThreads());
 
             var posts = new List<PostViewModel>();
-            posts.Transform(repo.GetPosts(id));
-            ViewBag.threadTitle = repo.GetThreadById(id).Title;
-            ViewBag.Likes = repo.GetLikes(id);
+            posts.Transform(_repo.GetPosts(id));
+            ViewBag.threadTitle = _repo.GetThreadById(id).Title;
+            ViewBag.Likes = _repo.GetLikes(id);
             return View(posts);
         }
 
@@ -40,10 +40,10 @@ namespace Web_Forum.Controllers
         {
             if (ModelState.IsValid)
             {
-                repo.AddPost(post.Transform());
+                _repo.AddPost(post.Transform());
                 var posts = new List<PostViewModel>();
-                posts.Transform(repo.GetPosts(post.ThreadId));
-                ViewBag.Likes = repo.GetLikes(post.ThreadId);
+                posts.Transform(_repo.GetPosts(post.ThreadId));
+                ViewBag.Likes = _repo.GetLikes(post.ThreadId);
                 return PartialView("Index", posts);
             }
 
@@ -53,19 +53,19 @@ namespace Web_Forum.Controllers
         [HttpPost]
         public ActionResult AddLike(Guid id)
         {
-            var likesAmount = repo.UpdateLikes(id);
+            var likesAmount = _repo.UpdateLikes(id);
 
             var posts = new List<PostViewModel>();
-            posts.Transform(repo.GetPosts(id));
+            posts.Transform(_repo.GetPosts(id));
             return PartialView("AddLike", likesAmount);
         }
         [HttpPost]
         public ActionResult AddPostLike(Guid id)
         {
-            var likesAmount = repo.UpdatePostLikes(id);
+            var likesAmount = _repo.UpdatePostLikes(id);
 
             var posts = new List<PostViewModel>();
-            posts.Transform(repo.GetPosts(id));
+            posts.Transform(_repo.GetPosts(id));
 
             return PartialView("AddLike", likesAmount);
         }
@@ -73,9 +73,9 @@ namespace Web_Forum.Controllers
         public ActionResult DeletePost(Guid id)
         {
 
-            repo.DeletePost(id);
+            _repo.DeletePost(id);
             var posts = new List<PostViewModel>();
-            posts.Transform(repo.GetPosts());
+            posts.Transform(_repo.GetPosts());
 
             return PartialView("Index", posts);
 
@@ -84,10 +84,10 @@ namespace Web_Forum.Controllers
         [HttpPost]
         public ActionResult EditPost(PostViewModel postToEdit)
         {
-            repo.EditPost(postToEdit.Transform());
+            _repo.EditPost(postToEdit.Transform());
 
             var posts = new List<PostViewModel>();
-            posts.Transform(repo.GetPosts());
+            posts.Transform(_repo.GetPosts());
             return PartialView("Index", posts);
         }
     }

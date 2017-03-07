@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace Web_Forum.Models
-
     
 {
     public class ThreadViewModel

@@ -1,4 +1,4 @@
-﻿ using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Repositories;
@@ -10,12 +10,18 @@ namespace Web_Forum.Controllers
 {
     public class HomeController : Controller
     {
-        public IRepository repo = new Repository();
+        private readonly IRepository _repo;
+
+        public HomeController()
+        {
+            _repo = new Repository();
+        }
+
         public ActionResult Index()
         {
 
             var threads = new List<IndexThreadViewModel>();
-            threads.Transform(repo.GetThreads());
+            threads.Transform(_repo.GetThreads());
             return View(threads);
         }
 
@@ -33,10 +39,10 @@ namespace Web_Forum.Controllers
         {
             if (ModelState.IsValid)
             { 
-                repo.AddThread(thread.Transform());
+                _repo.AddThread(thread.Transform());
 
                 var threads = new List<IndexThreadViewModel>();
-                threads.Transform(repo.GetThreads());
+                threads.Transform(_repo.GetThreads());
                 return PartialView("Index", threads);
             }
             
@@ -47,7 +53,7 @@ namespace Web_Forum.Controllers
         [HttpGet]
         public ActionResult EditThread(Guid id)
         {
-            var thread = Helper.IndexThreadDtoToViewModel(repo.GetThreadById(id));
+            var thread = Helper.IndexThreadDtoToViewModel(_repo.GetThreadById(id));
 
             return PartialView(thread);
         }
@@ -55,23 +61,20 @@ namespace Web_Forum.Controllers
         [HttpPost]
         public ActionResult EditThread(IndexThreadViewModel threadToEdit)
         {           
-            repo.EditThread(threadToEdit.Transform());
+            _repo.EditThread(threadToEdit.Transform());
 
             var threads = new List<IndexThreadViewModel>();
-            threads.Transform(repo.GetThreads());
+            threads.Transform(_repo.GetThreads());
             return PartialView("Index", threads);
         }
        
         public ActionResult DeleteThread(Guid id)
         {
             
-            repo.DeleteThread(id);
+            _repo.DeleteThread(id);
             var threads = new List<IndexThreadViewModel>();
-            threads.Transform(repo.GetThreads());
+            threads.Transform(_repo.GetThreads());
             return RedirectToActionPermanent("Index");
-            //return View("Index",threads);
-            
-
         }
 
         

@@ -33,9 +33,12 @@ namespace Web_Forum.data.Repositories
             using(var ctx = new WebForumContext())
             {
                 var postToEdit = ctx.Posts.Find(post.Id);
-                postToEdit.Text = post.Text;
+                if (postToEdit != null)
+                {
+                    postToEdit.Text = post.Text;
 
-                ctx.Entry(postToEdit).State = EntityState.Modified;
+                    ctx.Entry(postToEdit).State = EntityState.Modified;
+                }
                 ctx.SaveChanges();
 
             }
@@ -75,8 +78,11 @@ namespace Web_Forum.data.Repositories
             {
                 var threadToEdit = ctx.Threads.Find(thread.Id);
 
-                threadToEdit.Title = thread.Title;
-                ctx.Entry(threadToEdit).State = EntityState.Modified;
+                if (threadToEdit != null)
+                {
+                    threadToEdit.Title = thread.Title;
+                    ctx.Entry(threadToEdit).State = EntityState.Modified;
+                }
                 ctx.SaveChanges();
                 
             }
@@ -86,11 +92,11 @@ namespace Web_Forum.data.Repositories
         {
             using(var ctx = new WebForumContext())
             {
-                Trace.WriteLine($"delete Thread ID={threadId}");
+                Trace.WriteLine($"Delete Thread ID: {threadId}");
                 var threadToDelete = ctx.Threads.Find(threadId);
 
-                ctx.Threads.Remove(threadToDelete);
-                
+                if (threadToDelete != null) ctx.Threads.Remove(threadToDelete);
+
                 ctx.SaveChanges();
             }
         }
@@ -101,7 +107,7 @@ namespace Web_Forum.data.Repositories
             {
                 var postToDelete = ctx.Posts.Find(postId);
 
-                ctx.Posts.Remove(postToDelete);
+                if (postToDelete != null) ctx.Posts.Remove(postToDelete);
 
                 ctx.SaveChanges();
             }
@@ -133,10 +139,16 @@ namespace Web_Forum.data.Repositories
             {
                 var thread = ctx.Threads.Include("Posts").FirstOrDefault(x => x.Id == id);
 
+                if (thread == null) return null;
+
                 var dto = new IndexThreadDTO
                 {
+                    Id = thread.Id,
                     Title = thread.Title,
-                    // TODO Fill in rest
+                    DateCreated = thread.DateCreated,
+                    LastPosted = thread.LastPosted,
+                    Likes = thread.Likes,
+                    NumberOfPosts = thread.Posts.Count
                 };
                 return dto;
             }
@@ -146,28 +158,25 @@ namespace Web_Forum.data.Repositories
         {
             using ( var ctx = new WebForumContext())
             {
-                var threads = ctx.Threads.Include("Posts").ToList();
-
-                var dtos = new List<IndexThreadDTO>();
-                threads.ForEach(x => dtos.Add(new IndexThreadDTO
+                return ctx.Threads.Include("Posts").Select(t => new IndexThreadDTO
                 {
-                    Id = x.Id,
-                    Title = x.Title,
-                    DateCreated = x.DateCreated,
-                    LastPosted = x.Posts.Last().Posted,
-                    NumberOfPosts = x.Posts.Count,
-                    Likes = x.Likes
-                }));
-
-                return dtos;
+                    Id = t.Id,
+                    Likes = t.Likes,
+                    LastPosted = t.LastPosted,
+                    NumberOfPosts = t.Posts.Count,
+                    DateCreated = t.DateCreated,
+                    Title = t.Title
+                }).ToList();
             }
         }
-        public PostDTO GetPostByID(Guid id)
+        public PostDTO GetPostById(Guid id)
         {
-            var post = new Post();
             using (var ctx = new WebForumContext())
             {
-                post  = ctx.Posts.Find(id);
+                var post = ctx.Posts.Find(id);
+
+                if (post == null) return null;
+
                 var postDTO = new PostDTO
                 {
                     ThreadId = post.ThreadId,
@@ -177,13 +186,25 @@ namespace Web_Forum.data.Repositories
                     Likes = post.Likes
 
                 };
+
                 return postDTO;
             }
         }
 
         public List<PostDTO> GetPosts()
         {
-            throw new NotImplementedException();
+            using (var ctx = new WebForumContext())
+            {
+                return ctx.Posts.Include("Thread").Select(p => new PostDTO
+                {
+                    Id = p.Id,
+                    ThreadId = p.ThreadId,
+                    Likes = p.Likes,
+                    Name = p.Name,
+                    Posted = p.Posted,
+                    Text = p.Text
+                }).ToList();
+            }
         }
 
         public int GetLikes(Guid threadId)
@@ -201,9 +222,12 @@ namespace Web_Forum.data.Repositories
             using (var ctx = new WebForumContext())
             {
                 var thread = ctx.Threads.Find(threadId);
-                thread.Likes += 1;
-                likesAmount = thread.Likes;
-                ctx.Entry(thread).State = EntityState.Modified;
+                if (thread != null)
+                {
+                    thread.Likes += 1;
+                    likesAmount = thread.Likes;
+                    ctx.Entry(thread).State = EntityState.Modified;
+                }
 
                 ctx.SaveChanges();
             }
@@ -224,9 +248,12 @@ namespace Web_Forum.data.Repositories
             using (var ctx = new WebForumContext())
             {
                 var post = ctx.Posts.Find(postId);
-                post.Likes += 1;
-                likesAmount = post.Likes;
-                ctx.Entry(post).State = EntityState.Modified;
+                if (post != null)
+                {
+                    post.Likes += 1;
+                    likesAmount = post.Likes;
+                    ctx.Entry(post).State = EntityState.Modified;
+                }
 
                 ctx.SaveChanges();
             }

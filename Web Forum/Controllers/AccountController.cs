@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using Web_Forum.data.Interfaces;
@@ -13,7 +10,7 @@ namespace Web_Forum.Controllers
 {
     public class AccountController : Controller
     {
-        private IRepository repo = new Repository();
+        private readonly IRepository _repo = new Repository();
 
         [HttpGet]
         public ActionResult Login()
@@ -31,7 +28,7 @@ namespace Web_Forum.Controllers
             if (!ModelState.IsValid)
                 return View(user);
 
-            var dbUser = UserHelper.GetUserViewModelFromDto(repo.GetUserByCredentials(user.Email, user.Password));
+            var dbUser = UserHelper.GetUserViewModelFromDto(_repo.GetUserByCredentials(user.Email, user.Password));
 
             if (dbUser.Email != null && dbUser.Password != null)
             {

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace Web_Forum.data.DTO
 {
