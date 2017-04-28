@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Web.Mvc;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Repositories;
 using Web_Forum.Models;
 using Web_Forum.Helpers;
-using System;
 
 namespace Web_Forum.Controllers
 {
@@ -19,18 +18,13 @@ namespace Web_Forum.Controllers
 
         public ActionResult Index()
         {
-
-            var threads = new List<IndexThreadViewModel>();
-            threads.Transform(_repo.GetThreads());
-            return View(threads);
+            return View(ThreadHelper.Transform(_repo.GetThreads()));
         }
 
         [HttpGet]
         public ActionResult AddThread()
         {
-            var thread = new ThreadViewModel();
-
-            return PartialView(thread);
+            return PartialView(new ThreadViewModel());
         }
 
         [HttpPost]
@@ -39,44 +33,36 @@ namespace Web_Forum.Controllers
         {
             if (ModelState.IsValid)
             { 
-                _repo.AddThread(thread.Transform());
+                _repo.AddThread(ThreadHelper.Transform(thread));
 
-                var threads = new List<IndexThreadViewModel>();
-                threads.Transform(_repo.GetThreads());
-                return PartialView("Index", threads);
+                return PartialView("Index", ThreadHelper.Transform(_repo.GetThreads()));
             }
-            
-
             return PartialView("AddThread",thread);
         }
 
         [HttpGet]
         public ActionResult EditThread(Guid id)
         {
-            var thread = Helper.IndexThreadDtoToViewModel(_repo.GetThreadById(id));
-
-            return PartialView(thread);
+            return PartialView(ThreadHelper.Transform(_repo.GetThreadById(id)));
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditThread(IndexThreadViewModel threadToEdit)
         {           
-            _repo.EditThread(threadToEdit.Transform());
+            _repo.EditThread(ThreadHelper.Transform(threadToEdit));
 
-            var threads = new List<IndexThreadViewModel>();
-            threads.Transform(_repo.GetThreads());
-            return PartialView("Index", threads);
+            return PartialView("Index", ThreadHelper.Transform(_repo.GetThreads()));
         }
        
+        [HttpDelete]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteThread(Guid id)
         {
-            
             _repo.DeleteThread(id);
-            var threads = new List<IndexThreadViewModel>();
-            threads.Transform(_repo.GetThreads());
+
             return RedirectToActionPermanent("Index");
         }
-
         
         public ActionResult About()
         {

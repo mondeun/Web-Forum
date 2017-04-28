@@ -2,7 +2,7 @@
 
 namespace Web_Forum.data.Models
 {
-    public class Post
+    public sealed class Post
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

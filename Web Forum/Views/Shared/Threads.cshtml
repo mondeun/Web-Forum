@@ -29,7 +29,7 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             @*@Ajax.ActionLink("Delete", "DeleteThread", "Home", new {id = thread.Id}, new AjaxOptions {  HttpMethod= "Post", UpdateTargetId= "threadsInIndex", InsertionMode = InsertionMode.Replace }, new {@class = "btn btn-danger"})*@
-                            @Html.ActionLink("Delete", "DeleteThread", "Home", new { id = thread.Id }, new { @class = "btn btn-danger"});
+                            @Html.ActionLink("Delete", "DeleteThread", "Home", new { id = thread.Id }, new { @class = "btn btn-danger"})
                             
                            
                         }

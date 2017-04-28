@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Web_Forum.data.DTO;
+﻿using Web_Forum.data.DTO;
 using Web_Forum.Models;
 
 namespace Web_Forum.Helpers
 {
-    public class UserHelper
+    public static class UserHelper
     {
-        public static UserViewModel GetUserViewModelFromDto(UserDTO dto) => new UserViewModel
+        public static UserViewModel Transform(UserDTO dto) => new UserViewModel
         {
             Id = dto.Id,
             Name = dto.Name,

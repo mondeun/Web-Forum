@@ -40,7 +40,6 @@ namespace Web_Forum.data.Repositories
                     ctx.Entry(postToEdit).State = EntityState.Modified;
                 }
                 ctx.SaveChanges();
-
             }
         }
 
@@ -113,7 +112,7 @@ namespace Web_Forum.data.Repositories
             }
         }
 
-        public List<PostDTO> GetPosts(Guid threadId)
+        public IEnumerable<PostDTO> GetPosts(Guid threadId)
         {
             var postsFromThreadId = new List<PostDTO>();
             using (var ctx = new WebForumContext())
@@ -154,7 +153,7 @@ namespace Web_Forum.data.Repositories
             }
         }
 
-        public List<IndexThreadDTO> GetThreads()
+        public IEnumerable<IndexThreadDTO> GetThreads()
         {
             using ( var ctx = new WebForumContext())
             {
@@ -169,29 +168,8 @@ namespace Web_Forum.data.Repositories
                 }).ToList();
             }
         }
-        public PostDTO GetPostById(Guid id)
-        {
-            using (var ctx = new WebForumContext())
-            {
-                var post = ctx.Posts.Find(id);
 
-                if (post == null) return null;
-
-                var postDTO = new PostDTO
-                {
-                    ThreadId = post.ThreadId,
-                    Name = post.Name,
-                    Text = post.Text,
-                    Posted = post.Posted,
-                    Likes = post.Likes
-
-                };
-
-                return postDTO;
-            }
-        }
-
-        public List<PostDTO> GetPosts()
+        public IEnumerable<PostDTO> GetPosts()
         {
             using (var ctx = new WebForumContext())
             {
@@ -233,15 +211,7 @@ namespace Web_Forum.data.Repositories
             }
             return likesAmount;
         }
-        public int GetPostLikes(Guid postId)
-        {
-            using (var ctx = new WebForumContext())
-            {
-                var post = ctx.Posts.Find(postId);
 
-                return post?.Likes ?? 0;
-            }
-        }
         public int UpdatePostLikes(Guid postId)
         {
             var likesAmount = 0;
@@ -260,7 +230,7 @@ namespace Web_Forum.data.Repositories
             return likesAmount;
         }
 
-        public List<IndexThreadDTO> SearchThreads(string search)
+        public IEnumerable<IndexThreadDTO> SearchThreads(string search)
         {
             using (var ctx = new WebForumContext())
             {
@@ -281,7 +251,7 @@ namespace Web_Forum.data.Repositories
             }
         }
 
-        public List<PostDTO> SearchPosts(string search)
+        public IEnumerable<PostDTO> SearchPosts(string search)
         {
             using (var ctx = new WebForumContext())
             {

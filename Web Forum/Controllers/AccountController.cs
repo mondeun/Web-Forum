@@ -28,7 +28,7 @@ namespace Web_Forum.Controllers
             if (!ModelState.IsValid)
                 return View(user);
 
-            var dbUser = UserHelper.GetUserViewModelFromDto(_repo.GetUserByCredentials(user.Email, user.Password));
+            var dbUser = UserHelper.Transform(_repo.GetUserByCredentials(user.Email, user.Password));
 
             if (dbUser.Email != null && dbUser.Password != null)
             {

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.Mvc;
 using Web_Forum.data.Interfaces;
 using Web_Forum.data.Repositories;
@@ -14,24 +13,18 @@ namespace Web_Forum.Controllers
         // GET: Thread
         public ActionResult Index(Guid id)
         {
-            //var posts = repo.GetPosts(id).ForEach(x => x.Transform());
+            var thread = _repo.GetThreadById(id);
 
-            //var threads = new List<IndexThreadViewModel>();
-            //threads.Transform(repo.GetThreads());
+            ViewBag.threadTitle = thread.Title;
+            ViewBag.Likes = thread.Likes;
 
-            var posts = new List<PostViewModel>();
-            posts.Transform(_repo.GetPosts(id));
-            ViewBag.threadTitle = _repo.GetThreadById(id).Title;
-            ViewBag.Likes = _repo.GetLikes(id);
-            return View(posts);
+            return View(PostHelper.Transform(_repo.GetPosts(id)));
         }
 
         [HttpGet]
         public ActionResult AddPost(Guid id)
         {
-            var post = new PostViewModel { ThreadId = id };
-
-            return PartialView(post);
+            return PartialView(new PostViewModel { ThreadId = id });
         }
 
         [HttpPost]
@@ -40,55 +33,45 @@ namespace Web_Forum.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repo.AddPost(post.Transform());
-                var posts = new List<PostViewModel>();
-                posts.Transform(_repo.GetPosts(post.ThreadId));
+                _repo.AddPost(PostHelper.Transform(post));
                 ViewBag.Likes = _repo.GetLikes(post.ThreadId);
-                return PartialView("Index", posts);
+
+                return PartialView("Index", PostHelper.Transform(_repo.GetPosts(post.ThreadId)));
             }
 
             return PartialView(post);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddLike(Guid id)
         {
-            var likesAmount = _repo.UpdateLikes(id);
-
-            var posts = new List<PostViewModel>();
-            posts.Transform(_repo.GetPosts(id));
-            return PartialView("AddLike", likesAmount);
+            return PartialView("AddLike", _repo.UpdateLikes(id));
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddPostLike(Guid id)
         {
-            var likesAmount = _repo.UpdatePostLikes(id);
-
-            var posts = new List<PostViewModel>();
-            posts.Transform(_repo.GetPosts(id));
-
-            return PartialView("AddLike", likesAmount);
+            return PartialView("AddLike", _repo.UpdatePostLikes(id));
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult DeletePost(Guid id)
         {
-
             _repo.DeletePost(id);
-            var posts = new List<PostViewModel>();
-            posts.Transform(_repo.GetPosts());
 
-            return PartialView("Index", posts);
-
-
+            return PartialView("Index", PostHelper.Transform(_repo.GetPosts()));
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditPost(PostViewModel postToEdit)
         {
-            _repo.EditPost(postToEdit.Transform());
+            _repo.EditPost(PostHelper.Transform(postToEdit));
 
-            var posts = new List<PostViewModel>();
-            posts.Transform(_repo.GetPosts());
-            return PartialView("Index", posts);
+            return PartialView("Index", PostHelper.Transform(_repo.GetPosts()));
         }
     }
 }

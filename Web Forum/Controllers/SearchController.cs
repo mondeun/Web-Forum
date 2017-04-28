@@ -8,14 +8,20 @@ namespace Web_Forum.Controllers
 {
     public class SearchController : Controller
     {
-        private readonly IRepository _repo = new Repository();
+        private readonly IRepository _repo;
 
-        // GET: Search
+        public SearchController()
+        {
+            _repo = new Repository();
+        }
+        
         public ActionResult Results(string search)
         {
-            var results = new SearchViewModel();
-            results.Threads.Transform(_repo.SearchThreads(search));
-            results.Posts.Transform(_repo.SearchPosts(search));
+            var results = new SearchViewModel
+            {
+                Threads = ThreadHelper.Transform(_repo.SearchThreads(search)),
+                Posts = PostHelper.Transform(_repo.SearchPosts(search))
+            };
 
             return View(results);
         }

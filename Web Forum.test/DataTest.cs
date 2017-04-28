@@ -1,7 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Web_Forum.data.DTO;
-using Web_Forum.data.Repositories;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Web_Forum.test
 {

@@ -1,36 +1,20 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Web_Forum.data.DTO;
 using Web_Forum.Models;
 
 namespace Web_Forum.Helpers
 {
-    public static class Helper
+    public static class ThreadHelper
     {
-        public static ThreadDTO Transform(this ThreadViewModel thread)
+        public static ThreadDTO Transform(ThreadViewModel thread) => new ThreadDTO
         {
-            var dto = new ThreadDTO
-            {
-                Title = thread.Title,
-                Name = thread.Name,
-                Text = thread.Text
-            };
-            return dto;
-        }
-        public static IndexThreadDTO Transform(this IndexThreadViewModel thread)
-        {
-            var IdexThreDTO = new IndexThreadDTO
-            {
-                Id = thread.Id,
-                Title = thread.Title,
-                DateCreated = thread.LastPosted,
-                LastPosted = thread.LastPosted,
-                NumberOfPosts = thread.NumberOfPosts,
-                Likes = thread.Likes
-            };
-            return IdexThreDTO;
-        }
+            Title = thread.Title,
+            Name = thread.Name,
+            Text = thread.Text
+        };
 
-        public static IndexThreadViewModel IndexThreadDtoToViewModel(IndexThreadDTO thread) => new IndexThreadViewModel
+        public static IndexThreadDTO Transform(IndexThreadViewModel thread) => new IndexThreadDTO
         {
             Id = thread.Id,
             Title = thread.Title,
@@ -40,36 +24,19 @@ namespace Web_Forum.Helpers
             Likes = thread.Likes
         };
 
-        public static PostDTO Transform(this PostViewModel post)
+        public static IndexThreadViewModel Transform(IndexThreadDTO thread) => new IndexThreadViewModel
         {
-            var dto = new PostDTO
-            {
-                ThreadId = post.ThreadId,
-                Name = post.Name,
-                Text = post.Text
+            Id = thread.Id,
+            Title = thread.Title,
+            DateCreated = thread.LastPosted,
+            LastPosted = thread.LastPosted,
+            NumberOfPosts = thread.NumberOfPosts,
+            Likes = thread.Likes
+        };
 
-            };
-            return dto;
-        }
-
-        public static List<PostViewModel> Transform(this List<PostViewModel> models, List<PostDTO> dtos)
+        public static List<IndexThreadViewModel> Transform(IEnumerable<IndexThreadDTO> dtos)
         {
-            dtos.ForEach(x => models.Add(new PostViewModel
-            {
-                Id = x.Id,
-                ThreadId = x.ThreadId,
-                Name = x.Name,
-                Text = x.Text,
-                Posted = x.Posted,
-                Likes = x.Likes
-            }));
-
-            return models;
-        }
-
-        public static List<IndexThreadViewModel> Transform(this List<IndexThreadViewModel> models, List<IndexThreadDTO> dtos)
-        {
-            dtos.ForEach(x => models.Add(new IndexThreadViewModel
+            return dtos?.Select(x => new IndexThreadViewModel
             {
                 Id = x.Id,
                 Title = x.Title,
@@ -77,20 +44,7 @@ namespace Web_Forum.Helpers
                 LastPosted = x.LastPosted,
                 NumberOfPosts = x.NumberOfPosts,
                 Likes = x.Likes
-
-            }));
-            return models;
-        }
-
-        public static PostViewModel Transform(this PostDTO post)
-        {
-            var dto = new PostViewModel
-            {
-                ThreadId = post.ThreadId,
-                Name = post.Name,
-                Text = post.Text
-            };
-            return dto;
+            }).ToList();
         }
     }
 }
